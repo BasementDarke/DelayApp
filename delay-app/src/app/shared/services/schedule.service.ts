@@ -6,7 +6,6 @@ import { ParameterBlock } from '../objects/parameter.block';
 import { TaskKeyService } from './task.key.service';
 import { TaskRegistryService } from './task.registry.service';
 import { TaskObject } from '../objects/task.object';
-import { PlaywrightApiService } from './playwright.api.service';
 
 @Injectable({
   providedIn: 'root',
@@ -125,7 +124,7 @@ export class ScheduleService {
         [ParameterKey.EarrivalStation, "Lund C"],
         [ParameterKey.EdepartureStation, "Helsingborg C"]
       ]),
-      new PlaywrightApiService().searchJourneys
+      this.testFunc
     )
     // debug purposes
     // will define some tasks to register and to see if things work

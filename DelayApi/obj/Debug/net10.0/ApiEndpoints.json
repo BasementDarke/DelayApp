@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "DelayApi.Controllers.JourneyController",
+    "Method": "Index",
+    "RelativePath": "api/journey",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

@@ -1,6 +1,6 @@
 @DelayApi_HostAddress = http://localhost:5253
 
-GET {{DelayApi_HostAddress}}/weatherforecast/
+GET {{DelayApi_HostAddress}}/api/journey/
 Accept: application/json
 
 ###
