@@ -2,6 +2,7 @@
 using DelayApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Playwright.Core;
 using System.Text.Json;
 
 namespace DelayApi.Controllers
@@ -19,6 +20,7 @@ namespace DelayApi.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
+
             JsonElement? responseData = await _journeyService.SearchAsync("Helsingborg C", "Lund C", 0);
             //Dictionary<int, Journey>[] journeys = await this._journeyService.SearchAsync("Helsingborg C", "Lund C", 0);
             //for(int i = 0; i < journeys.Length; i++)
@@ -30,6 +32,20 @@ namespace DelayApi.Controllers
 
             return responseData is null ? NotFound() : Ok(responseData);
             //return Ok("balls");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ScheduleSearch(JourneySearch journeySearch)
+        {
+            var taskKey = journeySearch.TaskKey;
+            var departureStation = journeySearch.DepartureStation;
+            var arrivalStation = journeySearch.ArrivalStation;
+
+            Console.WriteLine(taskKey);
+            Console.WriteLine(departureStation);
+            Console.WriteLine(arrivalStation);
+            JsonElement? responseData = await _journeyService.SearchAsync(departureStation, arrivalStation, taskKey);
+            return responseData is null ? NotFound() : Ok(responseData);
         }
 
         // return NotFound if search fails, for error purposes

@@ -4,3 +4,15 @@ GET {{DelayApi_HostAddress}}/api/journey/
 Accept: application/json
 
 ###
+
+
+POST {{DelayApi_HostAddress}}/api/journey/
+Content-Type: application/json
+
+{
+  "taskKey": 1,
+  "departureStation": "Helsingborg C",
+  "arrivalStation": "Lund C"
+}
+
+###

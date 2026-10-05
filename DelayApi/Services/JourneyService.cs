@@ -22,7 +22,7 @@ namespace DelayApi.Services
 
             _browser = _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
                 {
-                    Headless = false
+                    Headless = true
                 })
                 .GetAwaiter()
                 .GetResult();
