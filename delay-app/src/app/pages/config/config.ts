@@ -10,14 +10,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './config.css',
 })
 export class Config {
-  private readonly scheduleService : ScheduleService
+  private readonly scheduleService = inject(ScheduleService);
   //private readonly journeyService = inject(JourneyService)
   //private readonly http = inject(HttpClient);
 
-
-  constructor(){
-    this.scheduleService = new ScheduleService()
-  }
   //private readonly journeyService = inject(JourneyService)
     
     //const now = new Date()

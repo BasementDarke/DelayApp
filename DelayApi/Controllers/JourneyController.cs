@@ -21,7 +21,7 @@ namespace DelayApi.Controllers
         public async Task<ActionResult> Index()
         {
 
-            JsonElement? responseData = await _journeyService.SearchAsync("Helsingborg C", "Lund C", 0);
+            JourneyResponse? responseData = await _journeyService.SearchAsync("Helsingborg C", "Lund C", 0);
             //Dictionary<int, Journey>[] journeys = await this._journeyService.SearchAsync("Helsingborg C", "Lund C", 0);
             //for(int i = 0; i < journeys.Length; i++)
             //{
@@ -44,7 +44,7 @@ namespace DelayApi.Controllers
             Console.WriteLine(taskKey);
             Console.WriteLine(departureStation);
             Console.WriteLine(arrivalStation);
-            JsonElement? responseData = await _journeyService.SearchAsync(departureStation, arrivalStation, taskKey);
+            JourneyResponse? responseData = await _journeyService.SearchAsync(departureStation, arrivalStation, taskKey);
             return responseData is null ? NotFound() : Ok(responseData);
         }
 

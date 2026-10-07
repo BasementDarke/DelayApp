@@ -23,6 +23,65 @@
             "description": "OK"
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Journey"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JourneySearch"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JourneySearch"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/JourneySearch"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "JourneySearch": {
+        "type": "object",
+        "properties": {
+          "taskKey": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "departureStation": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "arrivalStation": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
       }
     }
   },

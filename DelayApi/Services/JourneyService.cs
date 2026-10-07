@@ -28,7 +28,7 @@ namespace DelayApi.Services
                 .GetResult();
         }
 
-        public async Task<JsonElement?> SearchAsync(string departureStation, string arrivalStation, int taskKey)
+        public async Task<JourneyResponse> SearchAsync(string departureStation, string arrivalStation, int taskKey)
         {
             var context = await _browser.NewContextAsync();
             var page = await context.NewPageAsync();
@@ -73,7 +73,7 @@ namespace DelayApi.Services
                     Console.WriteLine(journeyResponse?.Api.ToString());
                     //return journeyResponse?.Journeys!;
                     //var jsonData = await responsePromise.JsonAsync();
-                    return jsonData;
+                    return journeyResponse;
                 }
             }
             finally

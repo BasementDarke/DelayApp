@@ -8,6 +8,8 @@ import { TaskRegistryService } from './task.registry.service';
 import { TaskObject } from '../objects/task.object';
 import { JourneyService } from './journey.service';
 import { HttpClient } from '@angular/common/http';
+import { JourneyJsonParserHandler } from '../util/journey.json.parser.handler';
+import { JourneyDelayHandler } from '../util/journey.delay.handler';
 
 @Injectable({
   providedIn: 'root',
@@ -19,10 +21,13 @@ export class ScheduleService {
   private taskKeyService = inject(TaskKeyService);
   private taskRegistryService = inject(TaskRegistryService)
 
+  private journeyDelayHandlers: Map<Number, JourneyDelayHandler>
+
   schedule: TaskObject[]
   runningSchedule = false
 
   constructor(){
+    this.journeyDelayHandlers = new Map<Number, JourneyDelayHandler>()
     this.schedule = new Array<TaskObject>;
     this.runningSchedule = false
     this.builder()
@@ -41,45 +46,10 @@ export class ScheduleService {
 
     // Register function/task to taskKey
     this.taskRegistryService.registerTask(pb.taskKey, func)
+
+    // Register Train Delay Handler to taskKey
+    this.journeyDelayHandlers.set(pb.taskKey, new JourneyDelayHandler(pb.taskKey))
     return pb.taskKey
-  }
-
-  scheduleStart(){
-    this.runningSchedule = true
-
-    console.log("STARTING SCHEDULE")
-
-    while(this.runningSchedule){
-      if(this.schedule.length == 0){
-        this.runningSchedule = false
-        break
-      }
-
-      let task = this.schedule[0]
-      let taskDate = task.date
-      let dateNow = new Date()
-
-      if(taskDate.valueOf() <= dateNow.valueOf()){
-
-        console.log(`${this.schedule.length}`)
-        task.func(task.parameters)
-
-        var arrLength = this.schedule.length
-        if(arrLength <= 1){
-          console.log("CALLED POP")
-          this.schedule.pop()
-        }
-        else {
-          console.log("CALLED SLICE")
-          this.schedule = this.schedule.slice(0+1, arrLength) // HUH????
-        }
-        console.log(`${this.schedule.length}`)
-        console.log("============")
-
-      }
-    }
-
-    console.log("ENDING SCHEDULE")
   }
 
   createTaskObject(taskKey: number, date: Date){
@@ -102,16 +72,7 @@ export class ScheduleService {
     
     let taskObject = this.createTaskObject(taskKey, date)
     setTimeout(() => {
-      this.taskSearchJourneys(taskObject.parameters) // doing it this way removes the error
-
-      //taskObject.func(taskObject.parameters) // does this call initialize a new class of ScheduleService????
-      // YEP, or atleast all injected services are undefined 
-      // It can be related to how we store the function via the taskRegistryService
-      // We are just saving a function, so within the functions scope it does not have access to the injected services
-      // Otherwise a fix would be to make it "isolated"
-      // it create a new class of JourneyService so it is not undefiend
-      // Nope, as injections can only happen in an injection context
-      // Instead we make use of new and create the class "manually"
+      this.taskSearchJourneys(taskObject.parameters)
     }, (sec*1000))
     //this.schedule.push(taskObject)
     //this.scheduleSort()
@@ -137,8 +98,7 @@ export class ScheduleService {
         [ParameterKey.EarrivalStation, "Lund C"],
         [ParameterKey.EdepartureStation, "Helsingborg C"]
       ]),
-      this.taskSearchJourneys // i think this is what causes the errors, but i do not know why
-      // the best i got is that it is scope issue
+      this.taskSearchJourneys 
     )
     this.scheduleTask(taskKey, 2);
     return
@@ -147,18 +107,20 @@ export class ScheduleService {
   }
 
   taskSearchJourneys(parameters: ParameterBlock){
-    //const journeyService = inject(JourneyService)
-    console.log(`TEST WITHIN SCHEDULESERVICE TASK: ${this.journeyService}`)
-    // strange, when the constructor is called $this.journeyService is clearly defined as an object
-    // but when this function is called it is undefined
-    return this.journeyService.DEBUG(parameters).subscribe(
+    return this.journeyService.getSchedule(parameters).subscribe(
       (response) => {
-        console.log(response)
+        console.log(response);
+        let joureyJsonParser = new JourneyJsonParserHandler(response)
+        let parsedJsonData = joureyJsonParser.getJourneys()
+        let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey)
+        let rescheduleMinTime = journeyDelayHandler?.analyzeData(parsedJsonData) as number
+        this.scheduleTask(parameters.taskKey, rescheduleMinTime * 60)
+        // problem potentially
+        // If the user closes their browser wont this code keep running?
+        // I will check with Asi if he knows something to combat this
+        // No nvm, this is running in their browser, it should stop
       }
     );
   }
 }
 
-// TODO:
-// Errors, the function is either not saved correctly or executed correctly
-// I belive this is a syntax error 

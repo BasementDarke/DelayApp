@@ -8,5 +8,21 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DelayApi.Controllers.JourneyController",
+    "Method": "ScheduleSearch",
+    "RelativePath": "api/journey",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "journeySearch",
+        "Type": "DelayApi.Models.JourneySearch",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

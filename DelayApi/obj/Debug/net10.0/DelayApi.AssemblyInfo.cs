@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DelayApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+445f190196ac074cf4f952330be348109d4d05cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+712c90537a455d7d620eb13bbe31488b6ec9164f")]
 [assembly: System.Reflection.AssemblyProductAttribute("DelayApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DelayApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
