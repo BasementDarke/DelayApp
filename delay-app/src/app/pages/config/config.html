@@ -1,2 +1,21 @@
-<p>config works!</p>
-<h1>CONFIGUREE</h1>
+<div class="container">
+  <div class="row mt-5 w-50">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="departureStationInput" class="form-label">Departure Station</label>
+        <input type="text" class="form-control" id="departureStationInput" formControlName="departureStation">
+      </div>
+      <div class="mb-3">
+        <label for="arrivalStationInput" class="form-label">Arrival Station</label>
+        <input type="text" class="form-control" id="arrivalStationInput" formControlName="arrivalStation">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Stations</button>
+    </form>
+
+  </div>
+</div>
+
+<div>
+    <button (click)="onClick()">Begin Search</button>
+</div>

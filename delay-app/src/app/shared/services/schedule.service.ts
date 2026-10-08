@@ -10,6 +10,7 @@ import { JourneyService } from './journey.service';
 import { HttpClient } from '@angular/common/http';
 import { JourneyJsonParserHandler } from '../util/journey.json.parser.handler';
 import { JourneyDelayHandler } from '../util/journey.delay.handler';
+import { ConfigService } from './config.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,7 @@ export class ScheduleService {
   private taskRegistryHandler = inject(TaskRegistryHandler)
   private taskKeyService = inject(TaskKeyService);
   private taskRegistryService = inject(TaskRegistryService)
+  private configService = inject(ConfigService)
 
   private journeyDelayHandlers: Map<Number, JourneyDelayHandler>
 
@@ -30,7 +32,7 @@ export class ScheduleService {
     this.journeyDelayHandlers = new Map<Number, JourneyDelayHandler>()
     this.schedule = new Array<TaskObject>;
     this.runningSchedule = false
-    this.builder()
+    //this.builder()
   }
 
   registerJourneyTask(parameters: Map<ParameterKey, string>, func: Function){
@@ -49,6 +51,7 @@ export class ScheduleService {
 
     // Register Train Delay Handler to taskKey
     this.journeyDelayHandlers.set(pb.taskKey, new JourneyDelayHandler(pb.taskKey))
+    console.log(`${pb.taskKey}, ${pb.parameters.get(ParameterKey.EdepartureStation)}, ${pb.parameters.get(ParameterKey.EarrivalStation)}`)
     return pb.taskKey
   }
 
@@ -89,6 +92,31 @@ export class ScheduleService {
     this.schedule.forEach( (task) => {
       console.log(`DATE: ${task.date}, ${task.taskKey}`)
     })
+  }
+
+  public configBuild(){
+    let stationsConfig = this.configService.getStationsCOnfig()
+    for(let tuple of stationsConfig){
+      let departureStation = tuple[0]
+      let arrivalStation = tuple[1]
+      console.log(`${departureStation} + ${arrivalStation} BUILDING:`)
+      this.buildStationsTask(departureStation, arrivalStation)
+      console.log("=============")
+    }
+    return
+  }
+
+  private buildStationsTask(departureStation: string, arrivalStation: string){
+    var taskKey = this.registerJourneyTask(
+      new Map<ParameterKey, string>([
+        [ParameterKey.EdepartureStation, departureStation],
+        [ParameterKey.EarrivalStation, arrivalStation]
+      ]),
+      this.taskSearchJourneys
+    )
+    let timeoutSecTime = 20
+    this.scheduleTask(taskKey, timeoutSecTime);
+    return
   }
 
   builder(){

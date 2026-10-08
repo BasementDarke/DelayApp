@@ -58,8 +58,7 @@
               "RelativeToolTip": "Models\\JourneySearch.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-04T18:52:28.209Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-04T18:52:28.209Z"
             },
             {
               "$type": "Document",
@@ -71,8 +70,7 @@
               "RelativeToolTip": "Models\\JourneyResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-01T23:25:13.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-01T23:25:13.274Z"
             },
             {
               "$type": "Document",
@@ -84,8 +82,7 @@
               "RelativeToolTip": "Services\\JourneyJson.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-30T21:21:48.266Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-30T21:21:48.266Z"
             },
             {
               "$type": "Document",
@@ -158,8 +155,7 @@
               "RelativeToolTip": "Controllers\\JourneyController.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAxwCUAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-29T16:54:06.454Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-29T16:54:06.454Z"
             }
           ]
         }
