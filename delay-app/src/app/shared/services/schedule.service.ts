@@ -142,6 +142,7 @@ export class ScheduleService {
         let parsedJsonData = joureyJsonParser.getJourneys()
         let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey)
         let rescheduleMinTime = journeyDelayHandler?.analyzeData(parsedJsonData) as number
+        
         this.scheduleTask(parameters.taskKey, rescheduleMinTime * 60)
         // problem potentially
         // If the user closes their browser wont this code keep running?

@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body {background-color: white;}
+p {color: black}
+
+.center{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

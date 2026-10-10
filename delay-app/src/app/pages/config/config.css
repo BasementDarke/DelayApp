@@ -1,0 +1,17 @@
+.ng-invalid {
+    border-color: red;
+}
+
+h1 {
+    font-size: 75px;
+    color: rgb(97, 68, 110);
+}
+
+.row.mt-5.w-50{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center.py-5.rounded-2{
+    background-color: rgb(250, 255, 223);
+}
