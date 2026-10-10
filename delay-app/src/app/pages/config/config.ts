@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ScheduleService } from '../../shared/services/schedule.service';
 import { JourneyService } from '../../shared/services/journey.service';
 import { HttpClient } from '@angular/common/http';
@@ -10,6 +10,7 @@ import { ConfigService } from '../../shared/services/config.service';
   selector: 'app-config',
   imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './config.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './config.css',
 })
 export class Config {
