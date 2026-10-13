@@ -1,20 +1,63 @@
-<div class="container">
-  <div class="row mt-5 w-50">
+<div class="form-container">
+  <div class="journey-config-form">
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label for="departureStationInput" class="form-label">Departure Station</label>
-        <input type="text" class="form-control" id="departureStationInput" formControlName="departureStation">
+
+      <div class="input-container">
+        <div class="input-group top-input">
+          <label for="departureStationInput" class="col-sm form-label form-item">From: </label>
+          <div class="col-xl">
+            <input type="text" class="form-input form-item" placeholder="Station" id="departureStationInput" formControlName="departureStation">
+          </div>
+        </div>
+        <div class="input-group bot-input">
+          <label for="arrivalStationInput" class="col-sm form-label form-item">To: </label>
+          <div class="col-xl">
+            <input type="text" class="form-input form-item" placeholder="Station" id="arrivalStationInput" formControlName="arrivalStation">
+          </div>
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="arrivalStationInput" class="form-label">Arrival Station</label>
-        <input type="text" class="form-control" id="arrivalStationInput" formControlName="arrivalStation">
-      </div>
+
       <button type="submit" class="btn btn-primary">Add Stations</button>
     </form>
 
   </div>
 </div>
+
+<div class="container text-left">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="row justify-content-md-center">
+      <div class="test-item left-top-item col-1 ">
+        <label for="departureStationInput" class="test-label">From</label>
+      </div>
+      <div class="test-item right-top-item col-3">
+        <input type="text" class="test-input" placeholder="Station" id="departureStationInput" formControlName="departureStation">
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="test-item left-bot-item col-1">
+        <label for="arrivalStationInput" class="test-label">To</label>
+      </div>
+      <div class="test-item right-bot-item col-3">
+        <input type="text" class="test-input" placeholder="Station" id="arrivalStationInput" formControlName="arrivalStation">
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="col-2">
+        <button type="submit" class="col-md-auto btn btn-primary">Add Stations</button>
+      </div>
+      <div class="col-2">
+        <button (click)="onClick()" class="col-md-auto btn btn-secondary">Begin Search</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+
 
 <div>
     <button (click)="onClick()">Begin Search</button>

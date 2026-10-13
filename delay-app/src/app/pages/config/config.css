@@ -1,17 +1,101 @@
-.ng-invalid {
-    border-color: red;
+.btn{
+    color: azure;
 }
 
-h1 {
-    font-size: 75px;
-    color: rgb(97, 68, 110);
+.form-container {
+    margin: 4rem auto;
+    max-width: 480px;
+    position: relative;
 }
 
-.row.mt-5.w-50{
-    margin-left: auto;
-    margin-right: auto;
+.journey-config-form {
+    background: white;
+    padding: 2.5rem;
+    border: none;
+    border-radius: 12px;
 }
 
-.text-center.py-5.rounded-2{
-    background-color: rgb(250, 255, 223);
+.input-group {
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: flex-start;
 }
+
+.form-label {
+    width: 20%;
+    border: none;
+    padding: 16px;
+    font-size: 15px;
+}
+
+.form-input {
+    width: 80%;
+    border: none;
+    padding: 16px;
+    font-size: 15px;
+}
+
+.top-input{
+    border-radius: 10px 10px 0px 0px;
+}
+
+.bot-input{
+    border-radius: 0px 0px 10px 10px;
+}
+
+.form-item {
+    margin-left: 10px;
+}
+
+.input-container{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.test-item{
+    padding: 2px;
+    border: 1px solid black;
+}
+
+.col-1{
+    text-align: center;
+}
+
+.left-top-item{
+    border-radius: 10px 0px 0px 0px;
+}
+
+.left-bot-item{
+    border-radius: 0px 0px 0px 10px;
+}
+
+.right-top-item{
+    border-radius: 0px 10px 0px 0px;
+}
+
+.right-bot-item{
+    border-radius: 0px 0px 10px 0px;
+}
+
+.test-input{
+    border: none;
+    width: 95%;
+}
+
+input:focus{
+    outline: none;
+}
+
+.test-label{
+    
+}
+
+
+
+
+

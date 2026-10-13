@@ -12,6 +12,10 @@ export class JourneyDelayHandler{
         this.assignedTaskKey = taskKey
     }
 
+    public getDelayData(){
+        return this.delayedJourneys
+    }
+
     public analyzeData(parsedData: Map<string, RouteLink[]>){
         let foundKeys = new Array<String>()
 

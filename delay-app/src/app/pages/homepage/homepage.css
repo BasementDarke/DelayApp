@@ -1,3 +1,41 @@
 .btn{
     color: azure;
 }
+
+.form-container {
+    margin: 4rem auto;
+    max-width: 480px;
+    position: relative;
+}
+
+.journey-config-form {
+    background: white;
+    padding: 2.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+}
+
+.input-group {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+}
+
+.form-input {
+    border: none;
+    padding: 16px;
+    font-size: 15px;
+}
+
+.form-item {
+    margin-left: 10px;
+}
+
+.input-container{
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+
+

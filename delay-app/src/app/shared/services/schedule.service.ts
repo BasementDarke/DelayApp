@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { ParameterTemplateService } from './parameter.template.service';
 import { TaskRegistryHandler } from './task.registry.handler';
 import { ParameterKey } from '../objects/parameter.key';
@@ -11,6 +11,9 @@ import { HttpClient } from '@angular/common/http';
 import { JourneyJsonParserHandler } from '../util/journey.json.parser.handler';
 import { JourneyDelayHandler } from '../util/journey.delay.handler';
 import { ConfigService } from './config.service';
+import { JourneyDelay } from '../objects/journey.delay';
+import { JourneyResponse, RouteLink } from '../models/journey.response';
+import { DEBUGJsonString } from '../objects/debug.search';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +26,11 @@ export class ScheduleService {
   private taskRegistryService = inject(TaskRegistryService)
   private configService = inject(ConfigService)
 
+  private _delayedJourneyTracker = signal<Array<JourneyDelay>>([])
+  public readonly delayedJourneyTracker = this._delayedJourneyTracker.asReadonly()
   private journeyDelayHandlers: Map<Number, JourneyDelayHandler>
+
+  private test: DEBUGJsonString
 
   schedule: TaskObject[]
   runningSchedule = false
@@ -32,7 +39,8 @@ export class ScheduleService {
     this.journeyDelayHandlers = new Map<Number, JourneyDelayHandler>()
     this.schedule = new Array<TaskObject>;
     this.runningSchedule = false
-    //this.builder()
+    this.test = new DEBUGJsonString()
+    this.builder()
   }
 
   registerJourneyTask(parameters: Map<ParameterKey, string>, func: Function){
@@ -52,6 +60,7 @@ export class ScheduleService {
     // Register Train Delay Handler to taskKey
     this.journeyDelayHandlers.set(pb.taskKey, new JourneyDelayHandler(pb.taskKey))
     console.log(`${pb.taskKey}, ${pb.parameters.get(ParameterKey.EdepartureStation)}, ${pb.parameters.get(ParameterKey.EarrivalStation)}`)
+    this._delayedJourneyTracker().push(new JourneyDelay(pb.taskKey, null, null, null))
     return pb.taskKey
   }
 
@@ -75,23 +84,11 @@ export class ScheduleService {
     
     let taskObject = this.createTaskObject(taskKey, date)
     setTimeout(() => {
-      this.taskSearchJourneys(taskObject.parameters)
+      this._delayedJourneyTracker().at(taskObject.taskKey)?.setUpdateStatus(true)
+      this._delayedJourneyTracker().at(taskObject.taskKey)?.setDateChecked(date)
+      this.DEBUGSearech(taskObject.parameters) // DEBUG task
+      //this.taskSearchJourneys(taskObject.parameters) // Correct task
     }, (sec*1000))
-    //this.schedule.push(taskObject)
-    //this.scheduleSort()
-
-    // use setTimeout instead of pushing to an array and sorting the array
-    // Store any tasks in local storage and remove once it is executed
-  }
-
-  scheduleSort(){
-    this.schedule.sort((a,b) => a.date.getTime() - b.date.getTime())
-  }
-
-  DEBUGprintSchedule(){
-    this.schedule.forEach( (task) => {
-      console.log(`DATE: ${task.date}, ${task.taskKey}`)
-    })
   }
 
   public configBuild(){
@@ -114,7 +111,7 @@ export class ScheduleService {
       ]),
       this.taskSearchJourneys
     )
-    let timeoutSecTime = 20
+    let timeoutSecTime = 4
     this.scheduleTask(taskKey, timeoutSecTime);
     return
   }
@@ -130,8 +127,45 @@ export class ScheduleService {
     )
     this.scheduleTask(taskKey, 2);
     return
+
+    taskKey = this.registerJourneyTask(
+      new Map<ParameterKey, string>([
+        [ParameterKey.EarrivalStation, "Kattarp tation"],
+        [ParameterKey.EdepartureStation, "Helsingborg C"]
+      ]),
+      this.taskSearchJourneys 
+    )
+    this.scheduleTask(taskKey, 2);
+
+    taskKey = this.registerJourneyTask(
+      new Map<ParameterKey, string>([
+        [ParameterKey.EarrivalStation, "Lund C"],
+        [ParameterKey.EdepartureStation, "Malmö C"]
+      ]),
+      this.taskSearchJourneys 
+    )
+    this.scheduleTask(taskKey, 2);
+    return
     // debug purposes
     // will define some tasks to register and to see if things work
+  }
+
+  DEBUGSearech(parameters: ParameterBlock){
+    let journeyResponse = this.test.getJourneyResponseDEBUG(parameters.taskKey) as JourneyResponse
+    let joureyJsonParser = new JourneyJsonParserHandler(journeyResponse)
+    let parsedJsonData = joureyJsonParser.getJourneys()
+    console.log(parsedJsonData)
+    let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
+    let rescheduleMinTime = journeyDelayHandler?.analyzeData(parsedJsonData) as number
+
+    const now = new Date();
+    let dateToCheck = new Date(now.valueOf() + rescheduleMinTime*60*1000);
+    this._delayedJourneyTracker().at(parameters.taskKey)?.setDateToCheck(dateToCheck)
+    this._delayedJourneyTracker().at(parameters.taskKey)?.setDelayedJourneys(journeyDelayHandler?.getDelayData())
+    this._delayedJourneyTracker().at(parameters.taskKey)?.setUpdateStatus(false)
+    console.log(this.delayedJourneyTracker)
+
+    //this.scheduleTask(parameters.taskKey, rescheduleMinTime * 60)
   }
 
   taskSearchJourneys(parameters: ParameterBlock){
@@ -140,16 +174,42 @@ export class ScheduleService {
         console.log(response);
         let joureyJsonParser = new JourneyJsonParserHandler(response)
         let parsedJsonData = joureyJsonParser.getJourneys()
-        let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey)
+        let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
         let rescheduleMinTime = journeyDelayHandler?.analyzeData(parsedJsonData) as number
-        
+
+        const now = new Date();
+        let dateToCheck = new Date(now.valueOf() + rescheduleMinTime*60*1000);
+        this._delayedJourneyTracker().at(parameters.taskKey)?.setDateToCheck(dateToCheck)
+        this._delayedJourneyTracker().at(parameters.taskKey)?.setDelayedJourneys(journeyDelayHandler?.getDelayData())
+        this._delayedJourneyTracker().at(parameters.taskKey)?.setUpdateStatus(false)
+
         this.scheduleTask(parameters.taskKey, rescheduleMinTime * 60)
-        // problem potentially
-        // If the user closes their browser wont this code keep running?
-        // I will check with Asi if he knows something to combat this
-        // No nvm, this is running in their browser, it should stop
       }
     );
   }
+
+  public readDelayedTrainData(){
+    return this.delayedJourneyTracker
+  }
 }
 
+
+// TODO:
+// Use an array to keep track of when tasks are to be scheduled
+// Using this array store the info in local storage 
+  // Remove info in local storage and array when task is completed
+
+// When booting up the app, check the local storage
+// If any tasks are scheduled load them into schedule service
+  // Ensure no double loading from config service
+
+// FOR FRONTEND:
+// Use an array to keep track of the following information
+// When last task was executed 
+// When the next task is to be executed
+// Delay data if it exists
+// The taskkey will be used as the index for this Array/Map
+
+// IN COMPONENT:
+// Use a signal to "check" if there is any information in the "info" array
+// Display all info neatly on a webpage

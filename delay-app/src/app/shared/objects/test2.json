@@ -1,0 +1,1085 @@
+{
+  "api": "se.skanetrafiken.api",
+  "time": "2026-10-12T13:49:34Z",
+  "usedSearchTime": "2026-10-12T13:49:00Z",
+  "refreshRateSeconds": 30,
+  "id": "75d0e9618d834176b8b832105d660b37",
+  "journeys": [
+    {
+      "id": 0,
+      "journeyKey": "2;rO0ABXoAAAFIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMgAAAAwAAAANAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ0AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDkyMDEwMDQzADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgwNDAxMDgyXzIwMjYxMDEyAAAACjIwMjYtMTAtMTIAAAAFAAAABgAfU1Q6U0U6Mjc2OlF1YXk6OTAyMjAxMjA5MjAxMDA0MgAfU1Q6U0U6Mjc2OlF1YXk6OTAyMjAxMjA4MzE5NDA0MQA3U1Q6U0U6Mjc2OkRhdGVkU2VydmljZUpvdXJuZXk6OTAxNTAxMjA4MTYwMTYyM18yMDI2MTAxMg==",
+      "sequenceNo": 0,
+      "noOfChanges": 1,
+      "deviationTag": {
+        "text": "INSTÄLLD",
+        "prio": 2
+      },
+      "deviationTags": [
+        {
+          "text": "INSTÄLLD",
+          "prio": 2
+        },
+        {
+          "text": "1 ANMÄRKNING",
+          "prio": 0
+        }
+      ],
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000399209565|2026-10-12",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-12T14:01:00Z",
+            "stopPointCoordinate": {
+              "lat": 56.043945,
+              "lon": 12.69425
+            },
+            "scheduledStopPointCoordinate": {
+              "lat": 56.043945,
+              "lon": 12.69425
+            },
+            "coordinate": {
+              "lat": 56.043055,
+              "lon": 12.69498
+            },
+            "id2": "9021012083241000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T14:15:00Z",
+            "stopPointCoordinate": {
+              "lat": 56.246451,
+              "lon": 12.853436
+            },
+            "scheduledStopPointCoordinate": {
+              "lat": 56.246451,
+              "lon": 12.853436
+            },
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1082",
+            "lineNo": 12000804,
+            "lineNoString": "ST:SE:276:Line:9011012080400000",
+            "color": "FF706C6A",
+            "outlineColor": "FF3E3B39",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Göteborg C",
+            "runNo": 1082,
+            "subType": "Öresundståg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012080401082"
+          },
+          "deviations": [
+            {
+              "text": "Tåget kan visa fel avgångstid. Vi hänvisar till skyltar på stationen. Orsaken är tekniskt fel.",
+              "prio": 0,
+              "infoLinks": []
+            }
+          ],
+          "canceled": true,
+          "path": "saauIajnlAupf@{a^",
+          "operatingDayDate": "2026-10-12"
+        },
+        {
+          "from": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T14:15:00Z",
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": false
+          },
+          "to": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T14:16:00Z",
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": false
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "lineNo": 0,
+            "color": "FFFFFFFF",
+            "outlineColor": "FF999593",
+            "iconColor": "FF3E3B39",
+            "towards": "",
+            "distance": "85 m",
+            "occupancySupport": false
+          },
+          "deviations": [],
+          "path": "ishvI}lmmA?A~@YFUgAZ??"
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000384386885|2026-10-12",
+          "from": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T14:20:00Z",
+            "pos": "Spår 2",
+            "stopPointCoordinate": {
+              "lat": 56.246453,
+              "lon": 12.853549
+            },
+            "scheduledPos": "Spår 2",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.246453,
+              "lon": 12.853549
+            },
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Kattarp station",
+            "time": "2026-10-12T14:27:00Z",
+            "pos": "Spår 1",
+            "stopPointCoordinate": {
+              "lat": 56.145887,
+              "lon": 12.778229
+            },
+            "scheduledPos": "Spår 1",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.145887,
+              "lon": 12.778229
+            },
+            "coordinate": {
+              "lat": 56.144698,
+              "lon": 12.778113
+            },
+            "id2": "9021012083194000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1623",
+            "lineNo": 12000816,
+            "lineNoString": "ST:SE:276:Line:9011012081600000",
+            "color": "FF716CB8",
+            "outlineColor": "FF6059A2",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Helsingborg C",
+            "runNo": 1623,
+            "subType": "Pågatåg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012081601623"
+          },
+          "deviations": [],
+          "path": "ishvIwmmmAl@O`Cw@bA[DCDADADCD?DCDADADCDADADCD?DC@?B?DCXGdAWzAWF?JA??HCD?@?J?FCB?FAH?F?JAH?HAH?H?HAH@^@^B^D^FVFF@^H^P\\LTLFD\\R\\VZV@@ZVZXZ^X^Z`@Vb@FHPZTb@JRJRVj@L`@FJDNDJDNDJFNDNDJDNBJFNDNDNDJDNDNpAlEHXPf@bAnDfB~F@DBD@H@DBD@D@DBF?DBD@D@DBD@HBD@D~@pCBF@DBD@DBDBD@B?@BB@D@D@DBD@DBDBF@DpEjLRf@FNBH`AdCb@hA~@`C^`AbClG??xJbWd@lAjE~KZv@~W`r@\\|@~w@hsBLZLZLZLZJZLZNZJZLZLZLXLXLZNZJZJRBDbBpDn@vAnBrDtBjDlAhBf@x@~BzCPRNTD@JPNPRTNPPTPRHHFFNTPPRRNPPPNTRP@DPPVVb@f@PRl^ba@zEnFrC`DlHfIxJxK`DnDXZVXXZXXVZXZDDPRXZVXXZXVVXVZXXXVXXv@n@lMpKpB`B`CxAnF~CrGtC|@`@h@TrExAjDdAb@H`JjBv@FdALjGl@lKVZ?\\A\\@ZCZ@^AZ?TAD?\\A\\AB?V?\\AZA\\A\\AZAbACjAEtXu@rACv]_AbCG~[{@fBGtL[lCGrf@sAj@?hAEd@At@Cp@A~HUC?nBGzACtHUfAApFOlDIH?DAF?F?DAF?D?F?DAF?F?DAF?D?F?FAlJA",
+          "operatingDayDate": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMgAAAAAAAAADAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ1AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMTk0MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNjAxNjI0XzIwMjYxMDEy",
+      "sequenceNo": 0,
+      "noOfChanges": 0,
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000384386980|2026-10-12",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-12T14:18:00Z",
+            "pos": "Spår 1a",
+            "stopPointCoordinate": {
+              "lat": 56.044099,
+              "lon": 12.694671
+            },
+            "scheduledPos": "Spår 1a",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.044099,
+              "lon": 12.694671
+            },
+            "coordinate": {
+              "lat": 56.043055,
+              "lon": 12.69498
+            },
+            "id2": "9021012083241000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Kattarp station",
+            "time": "2026-10-12T14:30:00Z",
+            "pos": "Spår 2",
+            "stopPointCoordinate": {
+              "lat": 56.145989,
+              "lon": 12.778012
+            },
+            "scheduledPos": "Spår 2",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.145989,
+              "lon": 12.778012
+            },
+            "coordinate": {
+              "lat": 56.144698,
+              "lon": 12.778113
+            },
+            "id2": "9021012083194000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1624",
+            "lineNo": 12000816,
+            "lineNoString": "ST:SE:276:Line:9011012081600000",
+            "color": "FF716CB8",
+            "outlineColor": "FF6059A2",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Halmstad C",
+            "runNo": 1624,
+            "subType": "Pågatåg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012081601624"
+          },
+          "deviations": [],
+          "path": "qbauIqlnlAmHzHeBpB}@jAQVOVMXsAfDoA~Ca@t@W^INc@h@e@d@e@b@KHWTuAz@uIbG{CxEqBdDW`@_A`Au@\\m@`@q@TcBj@cA^uAd@mAd@gC~@gBl@sD`ByBr@cBB_BMcCk@IAsAO_@?aBH_Bf@_Bv@iAx@eBz@oAToA?aAMs@QaAm@s@q@o@u@o@eA}@yBo@gCi@mDOuCEoBDcCJsBLgAJaBJoBLkB@_A@m@AaAA_AEcAUqEUkEAOAKAO?OAMCOAO?KAOAA?IAOAOAKAI?ECMAOG]CO??AMG[AKCOG[COCKI[IYI[KWGYMWAAISIWEEGOKUOQKSOQGIEEGGGIEGGEGIEECACEGEGIEEIGEEGGGEIKSQwH}Gc@c@k@e@GIGEGGGEIIEGGEIIECIIGGACCEEACCGGACCEEEAASUIK]_@c@s@c@s@a@s@]s@EIEKEKACCEEKAACIGKAEAEEKEMEGEKEMCGACEKEKEKEIEKCKCIEKEKCEACEKEKCIEKEKEIEKEIcBaEEKEIGKEGEMCGEKEIGIEKCGEMEGGKEICGEMEGGKEIEKCIEGGKEIEKCIEKEIGKEGCM_@y@EGEMEGEKEICKEKEIEKEIEKCIEKGKEGEMmCuGKS_B{DiDgIKUe@iASg@uDaIIUi@mAiAoCc@cAGQGSIMISGQIMISIQEQIOIQIOGQIQIOIQQ[i@mAkAoBMU??_AwAUYy@kAIOKKIKKMKKKOKKIKKKIMMKIKKKIKIIAEKKk@o@kE{Ec@g@i@k@mN}OcF{FcVeX{FwG_BcBeJiKeF{FgIeJmEcFeBoBUWKKe@i@cR{Sm@q@uEiFmEcFwGqHACGGIKA?IOMKEECEKKGGACKKMMIKKKIKMKIKKOIKmAmAcAcAqAoAIKMKIKKKKKKKKGKKKKKKKKIGMKIKMKII}BuBoDeD{@w@qEcEsI_IqFcFaGsFsCgCo@m@WY}ZcYaD{CoBeBoEcEwHeH{EoEwEiE_B{Aw@u@iCaCoF}E??a@a@mCeCwHeHmG{FwEkEg@g@QQQMQQSQQQKKEESMQQQQSQQMQQQMQQSMSQYS_CgBiCaBmCwAmCoAqCaAEAgAYeA]qCo@sCc@uCWMAMAQAMAOAM@MAOAOAOAM?MAOAM@OAOAsD@QAaEA",
+          "operatingDayDate": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMgAAAAAAAAADAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ1AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMTk0MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNjAxNjc0XzIwMjYxMDEy",
+      "sequenceNo": 0,
+      "noOfChanges": 0,
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000384387406|2026-10-12",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-12T14:48:00Z",
+            "pos": "Spår 1a",
+            "stopPointCoordinate": {
+              "lat": 56.044099,
+              "lon": 12.694671
+            },
+            "scheduledPos": "Spår 1a",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.044099,
+              "lon": 12.694671
+            },
+            "coordinate": {
+              "lat": 56.043055,
+              "lon": 12.69498
+            },
+            "id2": "9021012083241000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Kattarp station",
+            "time": "2026-10-12T15:00:00Z",
+            "pos": "Spår 2",
+            "stopPointCoordinate": {
+              "lat": 56.145989,
+              "lon": 12.778012
+            },
+            "scheduledPos": "Spår 2",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.145989,
+              "lon": 12.778012
+            },
+            "coordinate": {
+              "lat": 56.144698,
+              "lon": 12.778113
+            },
+            "id2": "9021012083194000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1674",
+            "lineNo": 12000816,
+            "lineNoString": "ST:SE:276:Line:9011012081600000",
+            "color": "FF716CB8",
+            "outlineColor": "FF6059A2",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Förslöv",
+            "runNo": 1674,
+            "subType": "Pågatåg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012081601674"
+          },
+          "deviations": [],
+          "path": "qbauIqlnlAmHzHeBpB}@jAQVOVMXsAfDoA~Ca@t@W^INc@h@e@d@e@b@KHWTuAz@uIbG{CxEqBdDW`@_A`Au@\\m@`@q@TcBj@cA^uAd@mAd@gC~@gBl@sD`ByBr@cBB_BMcCk@IAsAO_@?aBH_Bf@_Bv@iAx@eBz@oAToA?aAMs@QaAm@s@q@o@u@o@eA}@yBo@gCi@mDOuCEoBDcCJsBLgAJaBJoBLkB@_A@m@AaAA_AEcAUqEUkEAOAKAO?OAMCOAO?KAOAA?IAOAOAKAI?ECMAOG]CO??AMG[AKCOG[COCKI[IYI[KWGYMWAAISIWEEGOKUOQKSOQGIEEGGGIEGGEGIEECACEGEGIEEIGEEGGGEIKSQwH}Gc@c@k@e@GIGEGGGEIIEGGEIIECIIGGACCEEACCGGACCEEEAASUIK]_@c@s@c@s@a@s@]s@EIEKEKACCEEKAACIGKAEAEEKEMEGEKEMCGACEKEKEKEIEKCKCIEKEKCEACEKEKCIEKEKEIEKEIcBaEEKEIGKEGEMCGEKEIGIEKCGEMEGGKEICGEMEGGKEIEKCIEGGKEIEKCIEKEIGKEGCM_@y@EGEMEGEKEICKEKEIEKEIEKCIEKGKEGEMmCuGKS_B{DiDgIKUe@iASg@uDaIIUi@mAiAoCc@cAGQGSIMISGQIMISIQEQIOIQIOGQIQIOIQQ[i@mAkAoBMU??_AwAUYy@kAIOKKIKKMKKKOKKIKKKIMMKIKKKIKIIAEKKk@o@kE{Ec@g@i@k@mN}OcF{FcVeX{FwG_BcBeJiKeF{FgIeJmEcFeBoBUWKKe@i@cR{Sm@q@uEiFmEcFwGqHACGGIKA?IOMKEECEKKGGACKKMMIKKKIKMKIKKOIKmAmAcAcAqAoAIKMKIKKKKKKKKGKKKKKKKKIGMKIKMKII}BuBoDeD{@w@qEcEsI_IqFcFaGsFsCgCo@m@WY}ZcYaD{CoBeBoEcEwHeH{EoEwEiE_B{Aw@u@iCaCoF}E??a@a@mCeCwHeHmG{FwEkEg@g@QQQMQQSQQQKKEESMQQQQSQQMQQQMQQSMSQYS_CgBiCaBmCwAmCoAqCaAEAgAYeA]qCo@sCc@uCWMAMAQAMAOAM@MAOAOAOAM?MAOAM@OAOAsD@QAaEA",
+          "operatingDayDate": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "journeyKey": "2;rO0ABXoAAAFIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMgAAAAwAAAANAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ3AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDkyMDEwMDQzADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgwNDAxMDkwXzIwMjYxMDEyAAAACjIwMjYtMTAtMTIAAAAFAAAABgAfU1Q6U0U6Mjc2OlF1YXk6OTAyMjAxMjA5MjAxMDA0MgAfU1Q6U0U6Mjc2OlF1YXk6OTAyMjAxMjA4MzE5NDA0MQA3U1Q6U0U6Mjc2OkRhdGVkU2VydmljZUpvdXJuZXk6OTAxNTAxMjA4MTYwMTYyNV8yMDI2MTAxMg==",
+      "sequenceNo": 0,
+      "noOfChanges": 1,
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000399209595|2026-10-12",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-12T15:01:00Z",
+            "pos": "Spår 2a",
+            "stopPointCoordinate": {
+              "lat": 56.044059,
+              "lon": 12.69453
+            },
+            "scheduledPos": "Spår 4a",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.043945,
+              "lon": 12.69425
+            },
+            "deviation": 7,
+            "coordinate": {
+              "lat": 56.043055,
+              "lon": 12.69498
+            },
+            "id2": "9021012083241000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T15:15:00Z",
+            "pos": "Spår 3",
+            "stopPointCoordinate": {
+              "lat": 56.246451,
+              "lon": 12.853436
+            },
+            "scheduledPos": "Spår 3",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.246451,
+              "lon": 12.853436
+            },
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1090",
+            "lineNo": 12000804,
+            "lineNoString": "ST:SE:276:Line:9011012080400000",
+            "color": "FF706C6A",
+            "outlineColor": "FF3E3B39",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Göteborg C",
+            "runNo": 1090,
+            "subType": "Öresundståg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012080401090"
+          },
+          "deviations": [],
+          "path": "ibauIyknlA_pf@c`^",
+          "operatingDayDate": "2026-10-12"
+        },
+        {
+          "from": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T15:15:00Z",
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": false
+          },
+          "to": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T15:16:00Z",
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": false
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "lineNo": 0,
+            "color": "FFFFFFFF",
+            "outlineColor": "FF999593",
+            "iconColor": "FF3E3B39",
+            "towards": "",
+            "distance": "85 m",
+            "occupancySupport": false
+          },
+          "deviations": [],
+          "path": "ishvI}lmmA?A~@YFUgAZ??"
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000384386331|2026-10-12",
+          "from": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T15:20:00Z",
+            "pos": "Spår 2",
+            "stopPointCoordinate": {
+              "lat": 56.246453,
+              "lon": 12.853549
+            },
+            "scheduledPos": "Spår 2",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.246453,
+              "lon": 12.853549
+            },
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Kattarp station",
+            "time": "2026-10-12T15:27:00Z",
+            "pos": "Spår 1",
+            "stopPointCoordinate": {
+              "lat": 56.145887,
+              "lon": 12.778229
+            },
+            "scheduledPos": "Spår 1",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.145887,
+              "lon": 12.778229
+            },
+            "coordinate": {
+              "lat": 56.144698,
+              "lon": 12.778113
+            },
+            "id2": "9021012083194000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1625",
+            "lineNo": 12000816,
+            "lineNoString": "ST:SE:276:Line:9011012081600000",
+            "color": "FF716CB8",
+            "outlineColor": "FF6059A2",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Helsingborg C",
+            "runNo": 1625,
+            "subType": "Pågatåg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012081601625"
+          },
+          "deviations": [],
+          "path": "ishvIwmmmAl@O`Cw@bA[DCDADADCD?DCDADADCDADADCD?DC@?B?DCXGdAWzAWF?JA??HCD?@?J?FCB?FAH?F?JAH?HAH?H?HAH@^@^B^D^FVFF@^H^P\\LTLFD\\R\\VZV@@ZVZXZ^X^Z`@Vb@FHPZTb@JRJRVj@L`@FJDNDJDNDJFNDNDJDNBJFNDNDNDJDNDNpAlEHXPf@bAnDfB~F@DBD@H@DBD@D@DBF?DBD@D@DBD@HBD@D~@pCBF@DBD@DBDBD@B?@BB@D@D@DBD@DBDBF@DpEjLRf@FNBH`AdCb@hA~@`C^`AbClG??xJbWd@lAjE~KZv@~W`r@\\|@~w@hsBLZLZLZLZJZLZNZJZLZLZLXLXLZNZJZJRBDbBpDn@vAnBrDtBjDlAhBf@x@~BzCPRNTD@JPNPRTNPPTPRHHFFNTPPRRNPPPNTRP@DPPVVb@f@PRl^ba@zEnFrC`DlHfIxJxK`DnDXZVXXZXXVZXZDDPRXZVXXZXVVXVZXXXVXXv@n@lMpKpB`B`CxAnF~CrGtC|@`@h@TrExAjDdAb@H`JjBv@FdALjGl@lKVZ?\\A\\@ZCZ@^AZ?TAD?\\A\\AB?V?\\AZA\\A\\AZAbACjAEtXu@rACv]_AbCG~[{@fBGtL[lCGrf@sAj@?hAEd@At@Cp@A~HUC?nBGzACtHUfAApFOlDIH?DAF?F?DAF?D?F?DAF?F?DAF?D?F?FAlJA",
+          "operatingDayDate": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMgAAAAAAAAADAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ1AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMTk0MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNjAxNjI2XzIwMjYxMDEy",
+      "sequenceNo": 0,
+      "noOfChanges": 0,
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000384386999|2026-10-12",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-12T15:18:00Z",
+            "pos": "Spår 1a",
+            "stopPointCoordinate": {
+              "lat": 56.044099,
+              "lon": 12.694671
+            },
+            "scheduledPos": "Spår 1a",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.044099,
+              "lon": 12.694671
+            },
+            "coordinate": {
+              "lat": 56.043055,
+              "lon": 12.69498
+            },
+            "id2": "9021012083241000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Kattarp station",
+            "time": "2026-10-12T15:30:00Z",
+            "pos": "Spår 2",
+            "stopPointCoordinate": {
+              "lat": 56.145989,
+              "lon": 12.778012
+            },
+            "scheduledPos": "Spår 2",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.145989,
+              "lon": 12.778012
+            },
+            "coordinate": {
+              "lat": 56.144698,
+              "lon": 12.778113
+            },
+            "id2": "9021012083194000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1626",
+            "lineNo": 12000816,
+            "lineNoString": "ST:SE:276:Line:9011012081600000",
+            "color": "FF716CB8",
+            "outlineColor": "FF6059A2",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Halmstad C",
+            "runNo": 1626,
+            "subType": "Pågatåg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012081601626"
+          },
+          "deviations": [],
+          "path": "qbauIqlnlAmHzHeBpB}@jAQVOVMXsAfDoA~Ca@t@W^INc@h@e@d@e@b@KHWTuAz@uIbG{CxEqBdDW`@_A`Au@\\m@`@q@TcBj@cA^uAd@mAd@gC~@gBl@sD`ByBr@cBB_BMcCk@IAsAO_@?aBH_Bf@_Bv@iAx@eBz@oAToA?aAMs@QaAm@s@q@o@u@o@eA}@yBo@gCi@mDOuCEoBDcCJsBLgAJaBJoBLkB@_A@m@AaAA_AEcAUqEUkEAOAKAO?OAMCOAO?KAOAA?IAOAOAKAI?ECMAOG]CO??AMG[AKCOG[COCKI[IYI[KWGYMWAAISIWEEGOKUOQKSOQGIEEGGGIEGGEGIEECACEGEGIEEIGEEGGGEIKSQwH}Gc@c@k@e@GIGEGGGEIIEGGEIIECIIGGACCEEACCGGACCEEEAASUIK]_@c@s@c@s@a@s@]s@EIEKEKACCEEKAACIGKAEAEEKEMEGEKEMCGACEKEKEKEIEKCKCIEKEKCEACEKEKCIEKEKEIEKEIcBaEEKEIGKEGEMCGEKEIGIEKCGEMEGGKEICGEMEGGKEIEKCIEGGKEIEKCIEKEIGKEGCM_@y@EGEMEGEKEICKEKEIEKEIEKCIEKGKEGEMmCuGKS_B{DiDgIKUe@iASg@uDaIIUi@mAiAoCc@cAGQGSIMISGQIMISIQEQIOIQIOGQIQIOIQQ[i@mAkAoBMU??_AwAUYy@kAIOKKIKKMKKKOKKIKKKIMMKIKKKIKIIAEKKk@o@kE{Ec@g@i@k@mN}OcF{FcVeX{FwG_BcBeJiKeF{FgIeJmEcFeBoBUWKKe@i@cR{Sm@q@uEiFmEcFwGqHACGGIKA?IOMKEECEKKGGACKKMMIKKKIKMKIKKOIKmAmAcAcAqAoAIKMKIKKKKKKKKGKKKKKKKKIGMKIKMKII}BuBoDeD{@w@qEcEsI_IqFcFaGsFsCgCo@m@WY}ZcYaD{CoBeBoEcEwHeH{EoEwEiE_B{Aw@u@iCaCoF}E??a@a@mCeCwHeHmG{FwEkEg@g@QQQMQQSQQQKKEESMQQQQSQQMQQQMQQSMSQYS_CgBiCaBmCwAmCoAqCaAEAgAYeA]qCo@sCc@uCWMAMAQAMAOAM@MAOAOAOAM?MAOAM@OAOAsD@QAaEA",
+          "operatingDayDate": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMgAAAAAAAAADAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ1AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMTk0MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNjAxNjc2XzIwMjYxMDEy",
+      "sequenceNo": 0,
+      "noOfChanges": 0,
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000384387422|2026-10-12",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-12T15:48:00Z",
+            "pos": "Spår 1a",
+            "stopPointCoordinate": {
+              "lat": 56.044099,
+              "lon": 12.694671
+            },
+            "scheduledPos": "Spår 1a",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.044099,
+              "lon": 12.694671
+            },
+            "coordinate": {
+              "lat": 56.043055,
+              "lon": 12.69498
+            },
+            "id2": "9021012083241000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Kattarp station",
+            "time": "2026-10-12T16:00:00Z",
+            "pos": "Spår 2",
+            "stopPointCoordinate": {
+              "lat": 56.145989,
+              "lon": 12.778012
+            },
+            "scheduledPos": "Spår 2",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.145989,
+              "lon": 12.778012
+            },
+            "coordinate": {
+              "lat": 56.144698,
+              "lon": 12.778113
+            },
+            "id2": "9021012083194000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1676",
+            "lineNo": 12000816,
+            "lineNoString": "ST:SE:276:Line:9011012081600000",
+            "color": "FF716CB8",
+            "outlineColor": "FF6059A2",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Förslöv",
+            "runNo": 1676,
+            "subType": "Pågatåg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012081601676"
+          },
+          "deviations": [],
+          "path": "qbauIqlnlAmHzHeBpB}@jAQVOVMXsAfDoA~Ca@t@W^INc@h@e@d@e@b@KHWTuAz@uIbG{CxEqBdDW`@_A`Au@\\m@`@q@TcBj@cA^uAd@mAd@gC~@gBl@sD`ByBr@cBB_BMcCk@IAsAO_@?aBH_Bf@_Bv@iAx@eBz@oAToA?aAMs@QaAm@s@q@o@u@o@eA}@yBo@gCi@mDOuCEoBDcCJsBLgAJaBJoBLkB@_A@m@AaAA_AEcAUqEUkEAOAKAO?OAMCOAO?KAOAA?IAOAOAKAI?ECMAOG]CO??AMG[AKCOG[COCKI[IYI[KWGYMWAAISIWEEGOKUOQKSOQGIEEGGGIEGGEGIEECACEGEGIEEIGEEGGGEIKSQwH}Gc@c@k@e@GIGEGGGEIIEGGEIIECIIGGACCEEACCGGACCEEEAASUIK]_@c@s@c@s@a@s@]s@EIEKEKACCEEKAACIGKAEAEEKEMEGEKEMCGACEKEKEKEIEKCKCIEKEKCEACEKEKCIEKEKEIEKEIcBaEEKEIGKEGEMCGEKEIGIEKCGEMEGGKEICGEMEGGKEIEKCIEGGKEIEKCIEKEIGKEGCM_@y@EGEMEGEKEICKEKEIEKEIEKCIEKGKEGEMmCuGKS_B{DiDgIKUe@iASg@uDaIIUi@mAiAoCc@cAGQGSIMISGQIMISIQEQIOIQIOGQIQIOIQQ[i@mAkAoBMU??_AwAUYy@kAIOKKIKKMKKKOKKIKKKIMMKIKKKIKIIAEKKk@o@kE{Ec@g@i@k@mN}OcF{FcVeX{FwG_BcBeJiKeF{FgIeJmEcFeBoBUWKKe@i@cR{Sm@q@uEiFmEcFwGqHACGGIKA?IOMKEECEKKGGACKKMMIKKKIKMKIKKOIKmAmAcAcAqAoAIKMKIKKKKKKKKGKKKKKKKKIGMKIKMKII}BuBoDeD{@w@qEcEsI_IqFcFaGsFsCgCo@m@WY}ZcYaD{CoBeBoEcEwHeH{EoEwEiE_B{Aw@u@iCaCoF}E??a@a@mCeCwHeHmG{FwEkEg@g@QQQMQQSQQQKKEESMQQQQSQQMQQQMQQSMSQYS_CgBiCaBmCwAmCoAqCaAEAgAYeA]qCo@sCc@uCWMAMAQAMAOAM@MAOAOAOAM?MAOAM@OAOAsD@QAaEA",
+          "operatingDayDate": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "journeyKey": "2;rO0ABXoAAAFIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMgAAAAwAAAANAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ0AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDkyMDEwMDQzADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgwNDAxMDk4XzIwMjYxMDEyAAAACjIwMjYtMTAtMTIAAAAFAAAABgAfU1Q6U0U6Mjc2OlF1YXk6OTAyMjAxMjA5MjAxMDA0MgAfU1Q6U0U6Mjc2OlF1YXk6OTAyMjAxMjA4MzE5NDA0MQA3U1Q6U0U6Mjc2OkRhdGVkU2VydmljZUpvdXJuZXk6OTAxNTAxMjA4MTYwMTYyN18yMDI2MTAxMg==",
+      "sequenceNo": 0,
+      "noOfChanges": 1,
+      "deviationTags": [
+        {
+          "text": "1 ANMÄRKNING",
+          "prio": 0
+        }
+      ],
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000399210014|2026-10-12",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-12T16:01:00Z",
+            "pos": "Spår 4a",
+            "stopPointCoordinate": {
+              "lat": 56.043945,
+              "lon": 12.69425
+            },
+            "scheduledPos": "Spår 4a",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.043945,
+              "lon": 12.69425
+            },
+            "coordinate": {
+              "lat": 56.043055,
+              "lon": 12.69498
+            },
+            "id2": "9021012083241000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T16:15:00Z",
+            "pos": "Spår 3",
+            "stopPointCoordinate": {
+              "lat": 56.246451,
+              "lon": 12.853436
+            },
+            "scheduledPos": "Spår 3",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.246451,
+              "lon": 12.853436
+            },
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1098",
+            "lineNo": 12000804,
+            "lineNoString": "ST:SE:276:Line:9011012080400000",
+            "color": "FF706C6A",
+            "outlineColor": "FF3E3B39",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Göteborg C",
+            "runNo": 1098,
+            "subType": "Öresundståg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012080401098"
+          },
+          "deviations": [
+            {
+              "text": "Tåget kan visa fel avgångstid. Vi hänvisar till skyltar på stationen. Orsaken är tekniskt fel.",
+              "prio": 0,
+              "infoLinks": []
+            }
+          ],
+          "path": "saauIajnlAupf@{a^",
+          "operatingDayDate": "2026-10-12"
+        },
+        {
+          "from": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T16:15:00Z",
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": false
+          },
+          "to": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T16:16:00Z",
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": false
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "lineNo": 0,
+            "color": "FFFFFFFF",
+            "outlineColor": "FF999593",
+            "iconColor": "FF3E3B39",
+            "towards": "",
+            "distance": "85 m",
+            "occupancySupport": false
+          },
+          "deviations": [],
+          "path": "ishvI}lmmA?A~@YFUgAZ??"
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000384386904|2026-10-12",
+          "from": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T16:20:00Z",
+            "pos": "Spår 2",
+            "stopPointCoordinate": {
+              "lat": 56.246453,
+              "lon": 12.853549
+            },
+            "scheduledPos": "Spår 2",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.246453,
+              "lon": 12.853549
+            },
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Kattarp station",
+            "time": "2026-10-12T16:27:00Z",
+            "pos": "Spår 1",
+            "stopPointCoordinate": {
+              "lat": 56.145887,
+              "lon": 12.778229
+            },
+            "scheduledPos": "Spår 1",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.145887,
+              "lon": 12.778229
+            },
+            "coordinate": {
+              "lat": 56.144698,
+              "lon": 12.778113
+            },
+            "id2": "9021012083194000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1627",
+            "lineNo": 12000816,
+            "lineNoString": "ST:SE:276:Line:9011012081600000",
+            "color": "FF716CB8",
+            "outlineColor": "FF6059A2",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Helsingborg C",
+            "runNo": 1627,
+            "subType": "Pågatåg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012081601627"
+          },
+          "deviations": [],
+          "path": "ishvIwmmmAl@O`Cw@bA[DCDADADCD?DCDADADCDADADCD?DC@?B?DCXGdAWzAWF?JA??HCD?@?J?FCB?FAH?F?JAH?HAH?H?HAH@^@^B^D^FVFF@^H^P\\LTLFD\\R\\VZV@@ZVZXZ^X^Z`@Vb@FHPZTb@JRJRVj@L`@FJDNDJDNDJFNDNDJDNBJFNDNDNDJDNDNpAlEHXPf@bAnDfB~F@DBD@H@DBD@D@DBF?DBD@D@DBD@HBD@D~@pCBF@DBD@DBDBD@B?@BB@D@D@DBD@DBDBF@DpEjLRf@FNBH`AdCb@hA~@`C^`AbClG??xJbWd@lAjE~KZv@~W`r@\\|@~w@hsBLZLZLZLZJZLZNZJZLZLZLXLXLZNZJZJRBDbBpDn@vAnBrDtBjDlAhBf@x@~BzCPRNTD@JPNPRTNPPTPRHHFFNTPPRRNPPPNTRP@DPPVVb@f@PRl^ba@zEnFrC`DlHfIxJxK`DnDXZVXXZXXVZXZDDPRXZVXXZXVVXVZXXXVXXv@n@lMpKpB`B`CxAnF~CrGtC|@`@h@TrExAjDdAb@H`JjBv@FdALjGl@lKVZ?\\A\\@ZCZ@^AZ?TAD?\\A\\AB?V?\\AZA\\A\\AZAbACjAEtXu@rACv]_AbCG~[{@fBGtL[lCGrf@sAj@?hAEd@At@Cp@A~HUC?nBGzACtHUfAApFOlDIH?DAF?F?DAF?D?F?DAF?F?DAF?D?F?FAlJA",
+          "operatingDayDate": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMgAAAAAAAAADAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ1AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMTk0MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNjAxNjI4XzIwMjYxMDEy",
+      "sequenceNo": 0,
+      "noOfChanges": 0,
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000384387157|2026-10-12",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-12T16:18:00Z",
+            "pos": "Spår 1a",
+            "stopPointCoordinate": {
+              "lat": 56.044099,
+              "lon": 12.694671
+            },
+            "scheduledPos": "Spår 1a",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.044099,
+              "lon": 12.694671
+            },
+            "coordinate": {
+              "lat": 56.043055,
+              "lon": 12.69498
+            },
+            "id2": "9021012083241000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Kattarp station",
+            "time": "2026-10-12T16:30:00Z",
+            "pos": "Spår 2",
+            "stopPointCoordinate": {
+              "lat": 56.145989,
+              "lon": 12.778012
+            },
+            "scheduledPos": "Spår 2",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.145989,
+              "lon": 12.778012
+            },
+            "coordinate": {
+              "lat": 56.144698,
+              "lon": 12.778113
+            },
+            "id2": "9021012083194000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1628",
+            "lineNo": 12000816,
+            "lineNoString": "ST:SE:276:Line:9011012081600000",
+            "color": "FF716CB8",
+            "outlineColor": "FF6059A2",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Förslöv",
+            "runNo": 1628,
+            "subType": "Pågatåg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012081601628"
+          },
+          "deviations": [],
+          "path": "qbauIqlnlAmHzHeBpB}@jAQVOVMXsAfDoA~Ca@t@W^INc@h@e@d@e@b@KHWTuAz@uIbG{CxEqBdDW`@_A`Au@\\m@`@q@TcBj@cA^uAd@mAd@gC~@gBl@sD`ByBr@cBB_BMcCk@IAsAO_@?aBH_Bf@_Bv@iAx@eBz@oAToA?aAMs@QaAm@s@q@o@u@o@eA}@yBo@gCi@mDOuCEoBDcCJsBLgAJaBJoBLkB@_A@m@AaAA_AEcAUqEUkEAOAKAO?OAMCOAO?KAOAA?IAOAOAKAI?ECMAOG]CO??AMG[AKCOG[COCKI[IYI[KWGYMWAAISIWEEGOKUOQKSOQGIEEGGGIEGGEGIEECACEGEGIEEIGEEGGGEIKSQwH}Gc@c@k@e@GIGEGGGEIIEGGEIIECIIGGACCEEACCGGACCEEEAASUIK]_@c@s@c@s@a@s@]s@EIEKEKACCEEKAACIGKAEAEEKEMEGEKEMCGACEKEKEKEIEKCKCIEKEKCEACEKEKCIEKEKEIEKEIcBaEEKEIGKEGEMCGEKEIGIEKCGEMEGGKEICGEMEGGKEIEKCIEGGKEIEKCIEKEIGKEGCM_@y@EGEMEGEKEICKEKEIEKEIEKCIEKGKEGEMmCuGKS_B{DiDgIKUe@iASg@uDaIIUi@mAiAoCc@cAGQGSIMISGQIMISIQEQIOIQIOGQIQIOIQQ[i@mAkAoBMU??_AwAUYy@kAIOKKIKKMKKKOKKIKKKIMMKIKKKIKIIAEKKk@o@kE{Ec@g@i@k@mN}OcF{FcVeX{FwG_BcBeJiKeF{FgIeJmEcFeBoBUWKKe@i@cR{Sm@q@uEiFmEcFwGqHACGGIKA?IOMKEECEKKGGACKKMMIKKKIKMKIKKOIKmAmAcAcAqAoAIKMKIKKKKKKKKGKKKKKKKKIGMKIKMKII}BuBoDeD{@w@qEcEsI_IqFcFaGsFsCgCo@m@WY}ZcYaD{CoBeBoEcEwHeH{EoEwEiE_B{Aw@u@iCaCoF}E??a@a@mCeCwHeHmG{FwEkEg@g@QQQMQQSQQQKKEESMQQQQSQQMQQQMQQSMSQYS_CgBiCaBmCwAmCoAqCaAEAgAYeA]qCo@sCc@uCWMAMAQAMAOAM@MAOAOAOAM?MAOAM@OAOAsD@QAaEA",
+          "operatingDayDate": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "journeyKey": "2;rO0ABXoAAAFIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMgAAAAwAAAANAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ0AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDkyMDEwMDQzADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgwNDAxMTA2XzIwMjYxMDEyAAAACjIwMjYtMTAtMTIAAAAFAAAABgAfU1Q6U0U6Mjc2OlF1YXk6OTAyMjAxMjA5MjAxMDA0MgAfU1Q6U0U6Mjc2OlF1YXk6OTAyMjAxMjA4MzE5NDA0MQA3U1Q6U0U6Mjc2OkRhdGVkU2VydmljZUpvdXJuZXk6OTAxNTAxMjA4MTYwMTYyOV8yMDI2MTAxMg==",
+      "sequenceNo": 0,
+      "noOfChanges": 1,
+      "deviationTags": [
+        {
+          "text": "1 ANMÄRKNING",
+          "prio": 0
+        }
+      ],
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000399209295|2026-10-12",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-12T17:01:00Z",
+            "pos": "Spår 4a",
+            "stopPointCoordinate": {
+              "lat": 56.043945,
+              "lon": 12.69425
+            },
+            "scheduledPos": "Spår 4a",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.043945,
+              "lon": 12.69425
+            },
+            "coordinate": {
+              "lat": 56.043055,
+              "lon": 12.69498
+            },
+            "id2": "9021012083241000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T17:15:00Z",
+            "pos": "Spår 3",
+            "stopPointCoordinate": {
+              "lat": 56.246451,
+              "lon": 12.853436
+            },
+            "scheduledPos": "Spår 3",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.246451,
+              "lon": 12.853436
+            },
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1106",
+            "lineNo": 12000804,
+            "lineNoString": "ST:SE:276:Line:9011012080400000",
+            "color": "FF706C6A",
+            "outlineColor": "FF3E3B39",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Göteborg C",
+            "runNo": 1106,
+            "subType": "Öresundståg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012080401106"
+          },
+          "deviations": [
+            {
+              "text": "Tåget kan visa fel avgångstid. Vi hänvisar till skyltar på stationen. Orsaken är tekniskt fel.",
+              "prio": 0,
+              "infoLinks": []
+            }
+          ],
+          "path": "saauIajnlAupf@{a^",
+          "operatingDayDate": "2026-10-12"
+        },
+        {
+          "from": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T17:15:00Z",
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": false
+          },
+          "to": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T17:16:00Z",
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": false
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "lineNo": 0,
+            "color": "FFFFFFFF",
+            "outlineColor": "FF999593",
+            "iconColor": "FF3E3B39",
+            "towards": "",
+            "distance": "85 m",
+            "occupancySupport": false
+          },
+          "deviations": [],
+          "path": "ishvI}lmmA?A~@YFUgAZ??"
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000384386350|2026-10-12",
+          "from": {
+            "name": "Ängelholm station",
+            "time": "2026-10-12T17:20:00Z",
+            "pos": "Spår 2",
+            "stopPointCoordinate": {
+              "lat": 56.246453,
+              "lon": 12.853549
+            },
+            "scheduledPos": "Spår 2",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.246453,
+              "lon": 12.853549
+            },
+            "coordinate": {
+              "lat": 56.245732,
+              "lon": 12.854202
+            },
+            "id2": "9021012092010000",
+            "timePoint": true
+          },
+          "to": {
+            "name": "Kattarp station",
+            "time": "2026-10-12T17:27:00Z",
+            "pos": "Spår 1",
+            "stopPointCoordinate": {
+              "lat": 56.145887,
+              "lon": 12.778229
+            },
+            "scheduledPos": "Spår 1",
+            "scheduledStopPointCoordinate": {
+              "lat": 56.145887,
+              "lon": 12.778229
+            },
+            "coordinate": {
+              "lat": 56.144698,
+              "lon": 12.778113
+            },
+            "id2": "9021012083194000",
+            "timePoint": true
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1629",
+            "lineNo": 12000816,
+            "lineNoString": "ST:SE:276:Line:9011012081600000",
+            "color": "FF716CB8",
+            "outlineColor": "FF6059A2",
+            "iconColor": "FFFFFFFF",
+            "towards": "mot Helsingborg C",
+            "runNo": 1629,
+            "subType": "Pågatåg",
+            "occupancySupport": false,
+            "operatorId": "ST:SE:276:Authority:9010012000000000",
+            "operatorName": "Skånetrafiken",
+            "gid": "9015012081601629"
+          },
+          "deviations": [],
+          "path": "ishvIwmmmAl@O`Cw@bA[DCDADADCD?DCDADADCDADADCD?DC@?B?DCXGdAWzAWF?JA??HCD?@?J?FCB?FAH?F?JAH?HAH?H?HAH@^@^B^D^FVFF@^H^P\\LTLFD\\R\\VZV@@ZVZXZ^X^Z`@Vb@FHPZTb@JRJRVj@L`@FJDNDJDNDJFNDNDJDNBJFNDNDNDJDNDNpAlEHXPf@bAnDfB~F@DBD@H@DBD@D@DBF?DBD@D@DBD@HBD@D~@pCBF@DBD@DBDBD@B?@BB@D@D@DBD@DBDBF@DpEjLRf@FNBH`AdCb@hA~@`C^`AbClG??xJbWd@lAjE~KZv@~W`r@\\|@~w@hsBLZLZLZLZJZLZNZJZLZLZLXLXLZNZJZJRBDbBpDn@vAnBrDtBjDlAhBf@x@~BzCPRNTD@JPNPRTNPPTPRHHFFNTPPRRNPPPNTRP@DPPVVb@f@PRl^ba@zEnFrC`DlHfIxJxK`DnDXZVXXZXXVZXZDDPRXZVXXZXVVXVZXXXVXXv@n@lMpKpB`B`CxAnF~CrGtC|@`@h@TrExAjDdAb@H`JjBv@FdALjGl@lKVZ?\\A\\@ZCZ@^AZ?TAD?\\A\\AB?V?\\AZA\\A\\AZAbACjAEtXu@rACv]_AbCG~[{@fBGtL[lCGrf@sAj@?hAEd@At@Cp@A~HUC?nBGzACtHUfAApFOlDIH?DAF?F?DAF?D?F?DAF?F?DAF?D?F?FAlJA",
+          "operatingDayDate": "2026-10-12"
+        }
+      ]
+    }
+  ],
+  "prevCursor": "R|MnxQUkVWSU9VU19QQUdFfDIwMjYtMTAtMTJUMDk6NTg6MDBafHwzaDM2bXxTVFJFRVRfQU5EX0FSUklWQUxfVElNRXx8fHx8fHw=",
+  "nextCursor": "MnxORVhUX1BBR0V8MjAyNi0xMC0xMlQxNzoxMDowMFp8fDNoMzZtfFNUUkVFVF9BTkRfQVJSSVZBTF9USU1FfHx8fHx8fA==",
+  "tooLongWalkJourneys": []
+}
