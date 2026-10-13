@@ -60,7 +60,7 @@ export class ScheduleService {
     // Register Train Delay Handler to taskKey
     this.journeyDelayHandlers.set(pb.taskKey, new JourneyDelayHandler(pb.taskKey))
     console.log(`${pb.taskKey}, ${pb.parameters.get(ParameterKey.EdepartureStation)}, ${pb.parameters.get(ParameterKey.EarrivalStation)}`)
-    this._delayedJourneyTracker().push(new JourneyDelay(pb.taskKey, null, null, null))
+    this._delayedJourneyTracker().push(new JourneyDelay(pb, null, null, null))
     return pb.taskKey
   }
 
@@ -126,16 +126,7 @@ export class ScheduleService {
       this.taskSearchJourneys 
     )
     this.scheduleTask(taskKey, 2);
-    return
 
-    taskKey = this.registerJourneyTask(
-      new Map<ParameterKey, string>([
-        [ParameterKey.EarrivalStation, "Kattarp tation"],
-        [ParameterKey.EdepartureStation, "Helsingborg C"]
-      ]),
-      this.taskSearchJourneys 
-    )
-    this.scheduleTask(taskKey, 2);
 
     taskKey = this.registerJourneyTask(
       new Map<ParameterKey, string>([

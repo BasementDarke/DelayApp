@@ -1,7 +1,7 @@
 .table{
     border: 1px solid black;
+    border-radius: 20px;
 }
-
 
 .container{
     flex-direction: column;
@@ -14,6 +14,10 @@
     padding: 2px;
     margin-left: 2px;
     background-color: rgb(255, 255, 167);
+}
+
+.offset-7-left{
+    margin-left: 7px
 }
 
 .deviation-text{
@@ -36,4 +40,20 @@
 p{
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+span{
+    padding: 0px;
+}
+
+b{
+    padding: 0px;
+}
+
+.left-offset{
+    margin-left: 5px;
+}
+
+.station-text-header{
+    color: brown;
 }

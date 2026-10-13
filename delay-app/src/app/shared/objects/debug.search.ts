@@ -3,9 +3,12 @@ import test1 from "./test1.json"
 import test2 from "./test2.json"
 import test3 from "./test3.json"
 import testballs from "./testballs.json"
+import malmoLund from "./malmoLund.json"
 
 export class DEBUGJsonString {
     public testBalls: string
+    public testMalmoLund: string
+
     public test1Str: string
     public test2Str: string
     public test3Str: string
@@ -15,8 +18,12 @@ export class DEBUGJsonString {
         this.testBalls = JSON.stringify(testballs)
         let yesBalls: JourneyResponse = JSON.parse(this.testBalls)
 
+        this.testMalmoLund = JSON.stringify(malmoLund)
+        let yesMalmoLund: JourneyResponse = JSON.parse(this.testMalmoLund)
+
         this.testMap = new Map<number, JourneyResponse>
         this.testMap.set(0, yesBalls)
+        this.testMap.set(1, yesMalmoLund)
 
         this.test1Str = JSON.stringify(test1)
         let yes1: JourneyResponse = JSON.parse(this.test1Str)

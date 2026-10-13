@@ -1,45 +1,34 @@
-<p>search works!</p>
+<br>
+<br>
 <div class="container">
-    @for (item of delayedJourneys$(); let i = $index; track i){
-        <div class="container col-xl">
-            <table class="table">
+    @for (item of delayedJourneys(); let i = $index; track i){
+        <div class="container col-xl ">
+            <table class="table rounded">
                 <div>
                     <P>
-                        {{ item.getParameters()?.parameters.get(parameterKey.EdepartureStation) }}
-                        To   
-                        {{ item.getParameters()?.parameters.get(parameterKey.EarrivalStation) }}
+                        <b><span class="left-offset station-text-header">{{ item.getDepartureStation() }}</span></b>
+                        <span class="fa-solid fa-arrow-right-long journey-arrow"></span> 
+                        <b><span class="left-offset station-text-header">{{ item.getArrivalStation() }}</span></b>
                     </P>
                 </div>
                 <div class="small-text">
                     <p>
-                        <span class="left-update-text">Last Updated: {{ formatDateDate(item.dateChecked!) }}</span>
-                        <span class="right-update-text">Next Update: {{ formatDateDate(item.dateToCheck!) }}</span>
+                        <span class="left-update-text left-offset">Last Updated: {{ item.dateChecked | basementJourneyDate }}</span>
+                        <span class="right-update-text left-offset">Next Update: {{ item.dateToCheck | basementJourneyDate }}</span>
                     </p>
                 </div>
                 @for (entry of item.delayedJourneys; let i = $index; track i){
                     @for (journey of entry[1]; let i = $index; track i){
                         <p>
-                            @if( journey.from?.deviation! != null){
-                                <b><span class="delay-text">{{ formatDateDeviation(journey.from?.time!, journey.from?.deviation!) }}</span></b>
-                                <del class="deviation-text">{{ formatDateString(journey.from?.time!) }}</del>
-                            }
-                            @else {
-                                <b>{{ formatDateDeviation(journey.from?.time!, journey.from?.deviation!) }} </b>
-                            }
-                            <i class="fa-solid fa-arrow-right-long journey-arrow"></i> 
-                            @if (journey.to?.deviation! != null){
-                                <b><span class="delay-text">{{ formatDateDeviation(journey.to?.time!, journey.to?.deviation!) }}</span></b>
-                                <del class="deviation-text">{{ formatDateString(journey.to?.time!) }}</del>
-                            }
-                            @else {
-                                <b>{{ formatDateDeviation(journey.to?.time!, journey.to?.deviation!) }} </b>
-                            }
+                            <app-journey-deviation [routeStation]=journey.from />
+                            <i class="fa-solid fa-arrow-right-long journey-arrow left-offset"></i> 
+                            <app-journey-deviation [routeStation]=journey.to />
                         </p>
-                    }
+                    } 
+                } @empty {
+                        <p class="left-offset">No Delays found yet...</p>
                 }
             </table>
         </div>
-        <p>{{ item.getParameters()?.parameters.get(parameterKey.EarrivalStation) }}</p>
-        <p>{{ item.getParameters()?.parameters.get(parameterKey.EdepartureStation) }}</p>
     }
 </div>

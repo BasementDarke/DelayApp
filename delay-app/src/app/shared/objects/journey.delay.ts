@@ -1,17 +1,18 @@
 import { inject } from "@angular/core";
 import { RouteLink } from "../models/journey.response";
 import { ParameterTemplateService } from "../services/parameter.template.service";
+import { ParameterBlock } from "./parameter.block";
+import { ParameterKey } from "./parameter.key";
 
 export class JourneyDelay{
-    private parameterTemplateService = inject(ParameterTemplateService);
-    public taskKey: number | null
+    public parameterBlock: ParameterBlock
     public dateChecked: Date | null
     public dateToCheck: Date | null
     public delayedJourneys: Map<string, RouteLink[]> | null
     private updating: boolean
 
-    constructor(taskKey: number | null, dateChecked: Date | null, dateToCheck: Date | null, delayedJourneys: Map<string, RouteLink[]> | null){
-        this.taskKey = taskKey
+    constructor(parameters: ParameterBlock, dateChecked: Date | null, dateToCheck: Date | null, delayedJourneys: Map<string, RouteLink[]> | null){
+        this.parameterBlock = parameters
         this.dateChecked = dateChecked
         this.dateToCheck = dateToCheck
         this.delayedJourneys = delayedJourneys
@@ -19,10 +20,18 @@ export class JourneyDelay{
     }
 
     getParameters(){
-        if(this.taskKey === null){
+        if(this.parameterBlock.taskKey === null){
             return undefined
         }
-        return this.parameterTemplateService.getParameterBlock(this.taskKey)
+        return this.parameterBlock
+    }
+
+    getDepartureStation(){
+        return this.parameterBlock.parameters.get(ParameterKey.EdepartureStation)
+    }
+
+    getArrivalStation(){
+        return this.parameterBlock.parameters.get(ParameterKey.EarrivalStation)
     }
 
     setDateChecked(dateChecked: Date){
@@ -30,7 +39,7 @@ export class JourneyDelay{
     }
 
     setTaskKey(taskKey: number){
-        this.taskKey = taskKey
+        this.parameterBlock.taskKey = taskKey
     }
 
     setDateToCheck(dateToCheck: Date){

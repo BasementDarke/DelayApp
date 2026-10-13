@@ -3,10 +3,13 @@ import { Router } from '@angular/router';
 import { ConfigService } from '../../shared/services/config.service';
 import { ScheduleService } from '../../shared/services/schedule.service';
 import { ParameterKey } from '../../shared/objects/parameter.key';
+import { DatePipe } from '@angular/common';
+import { BasementJourneyDatePipe } from '../../shared/pipes/basement-journey-date-pipe';
+import { JourneyDeviation } from './components/journey-deviation/journey-deviation';
 
 @Component({
   selector: 'app-search',
-  imports: [],
+  imports: [BasementJourneyDatePipe, JourneyDeviation],
   templateUrl: './search.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './search.css',
@@ -16,29 +19,9 @@ export class Search {
   private router = inject(Router)
   private configService = inject(ConfigService)
 
-  delayedJourneys$ = this.scheduleService.readDelayedTrainData()
+  delayedJourneys = this.scheduleService.readDelayedTrainData()
   readonly parameterKey = ParameterKey;
 
-  formatDateString(str: string){
-    let date = new Date(str)
-    const padStart = (value: number): string =>
-        value.toString().padStart(2, '0');
-    return `${padStart(date.getHours())}:${padStart(date.getMinutes())}`;
-  }
-
-  formatDateDeviation(str: string, deviation: number){
-    let curr = new Date(str)
-    const date = new Date(curr.valueOf() + deviation*60*1000)
-    const padStart = (value: number): string =>
-        value.toString().padStart(2, '0');
-    return `${padStart(date.getHours())}:${padStart(date.getMinutes())}`;
-  }
-
-  formatDateDate(date: Date){
-    const padStart = (value: number): string =>
-        value.toString().padStart(2, '0');
-    return `${padStart(date.getDate())}/${padStart(date.getMonth() + 1)}/${date.getFullYear()} ${padStart(date.getHours())}:${padStart(date.getMinutes())}`;
-  }
 
   /*
 

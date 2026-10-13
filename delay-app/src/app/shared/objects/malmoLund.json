@@ -1,0 +1,364 @@
+{
+  "api": "se.skanetrafiken.api",
+  "time": "2026-10-13T17:28:36Z",
+  "id": "54adc99a432347e498801b5b3585cf49",
+  "journeys": [
+    {
+      "id": 0,
+      "journeyKey": "2;rO0ABXe3AQAAAEBLzjENvwVkQCoB88cMmWsAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMwAAAAgAAAAJAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgwMDAwMDE5AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQ2ADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgwNTAxMTE4XzIwMjYxMDEz",
+      "routeLinks": [
+        {
+          "id": null,
+          "from": {
+            "name": "Malmö C Norra",
+            "time": "2026-10-13T17:37:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:42:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "no": null,
+            "lineNo": 0
+          }
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000383770990|2026-10-13",
+          "from": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:42:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-13T17:52:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1118",
+            "lineNo": 12000805
+          }
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "journeyKey": "2;rO0ABXe3AQAAAEBLzjENvwVkQCoB88cMmWsAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMwAAAAwAAAARAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgwMDAwMDE4AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQ1ADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNzAxNzc4XzIwMjYxMDEz",
+      "routeLinks": [
+        {
+          "id": null,
+          "from": {
+            "name": "Malmö C Norra",
+            "time": "2026-10-13T17:35:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:39:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "no": null,
+            "lineNo": 0
+          }
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000388337691|2026-10-13",
+          "from": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:39:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-13T17:56:00Z",
+            "deviation": 2,
+            "passed": null
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1778",
+            "lineNo": 12000817
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "journeyKey": "2;rO0ABXe3AQAAAEBLzjENvwVkQCoB88cMmWsAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMwAAAAIAAAAEAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgwMDAwMDE5AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQ1ADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgyNDAxNTgwXzIwMjYxMDEz",
+      "routeLinks": [
+        {
+          "id": null,
+          "from": {
+            "name": "Malmö C Norra",
+            "time": "2026-10-13T17:46:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:51:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "no": null,
+            "lineNo": 0
+          }
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000384396544|2026-10-13",
+          "from": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:51:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-13T18:04:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1580",
+            "lineNo": 12000824
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "journeyKey": "2;rO0ABXoAAAFIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMwAAACIAAAAjAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgwMDEzMDI0AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgwMDAwMDAzADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDAxMzAwMTA1XzIwMjYxMDEzAAAACjIwMjYtMTAtMTMAAAAIAAAACgAfU1Q6U0U6Mjc2OlF1YXk6OTAyMjAxMjA4MDAwMDAxOQAfU1Q6U0U6Mjc2OlF1YXk6OTAyMjAxMjA4MTIxNjA0NAA3U1Q6U0U6Mjc2OkRhdGVkU2VydmljZUpvdXJuZXk6OTAxNTAxMjA4MDMwMTEyMF8yMDI2MTAxMw==",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000399327280|2026-10-13",
+          "from": {
+            "name": "Malmö C Norra",
+            "time": "2026-10-13T17:49:00Z",
+            "deviation": 2,
+            "passed": null
+          },
+          "to": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:52:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Stadsbuss",
+            "type": "Bus",
+            "no": "13",
+            "lineNo": 12000013
+          }
+        },
+        {
+          "id": null,
+          "from": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:52:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:54:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "no": null,
+            "lineNo": 0
+          }
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000398889917|2026-10-13",
+          "from": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:57:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-13T18:09:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1120",
+            "lineNo": 12000803
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "journeyKey": "2;rO0ABXe3AQAAAEBLzjENvwVkQCoB88cMmWsAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMwAAAAgAAAAKAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgwMDAwMDE5AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQ0ADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgwMzAxMTIwXzIwMjYxMDEz",
+      "routeLinks": [
+        {
+          "id": null,
+          "from": {
+            "name": "Malmö C Norra",
+            "time": "2026-10-13T17:52:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:57:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "no": null,
+            "lineNo": 0
+          }
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000398889917|2026-10-13",
+          "from": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:57:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-13T18:09:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1120",
+            "lineNo": 12000803
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "journeyKey": "2;rO0ABXe3AQAAAEBLzjENvwVkQCoB88cMmWsAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMwAAAAYAAAALAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgwMDAwMDE4AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQ1ADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxMjAxMjgyXzIwMjYxMDEz",
+      "routeLinks": [
+        {
+          "id": null,
+          "from": {
+            "name": "Malmö C Norra",
+            "time": "2026-10-13T17:50:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:54:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "no": null,
+            "lineNo": 0
+          }
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000388319823|2026-10-13",
+          "from": {
+            "name": "Malmö C",
+            "time": "2026-10-13T17:54:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-13T18:11:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1282",
+            "lineNo": 12000812
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "journeyKey": "2;rO0ABXe3AQAAAEBLzjENvwVkQCoB88cMmWsAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xMwAAAA4AAAATAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgwMDAwMDE4AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQ1ADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNzAxNzMwXzIwMjYxMDEz",
+      "routeLinks": [
+        {
+          "id": null,
+          "from": {
+            "name": "Malmö C Norra",
+            "time": "2026-10-13T18:05:00Z",
+            "deviation": 2,
+            "passed": null
+          },
+          "to": {
+            "name": "Malmö C",
+            "time": "2026-10-13T18:09:00Z",
+            "deviation": 2,
+            "passed": null
+          },
+          "line": {
+            "name": "Gång",
+            "type": "Walk",
+            "no": null,
+            "lineNo": 0
+          }
+        },
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000395363581|2026-10-13",
+          "from": {
+            "name": "Malmö C",
+            "time": "2026-10-13T18:09:00Z",
+            "deviation": 2,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-13T18:26:00Z",
+            "deviation": 4,
+            "passed": null
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1730",
+            "lineNo": 12000817
+          }
+        }
+      ]
+    }
+  ]
+}
