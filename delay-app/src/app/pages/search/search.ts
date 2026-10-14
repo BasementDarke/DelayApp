@@ -6,10 +6,11 @@ import { ParameterKey } from '../../shared/objects/parameter.key';
 import { DatePipe } from '@angular/common';
 import { BasementJourneyDatePipe } from '../../shared/pipes/basement-journey-date-pipe';
 import { JourneyDeviation } from './components/journey-deviation/journey-deviation';
+import { JourneyInfoHeader } from './components/journey-info-header/journey-info-header';
 
 @Component({
   selector: 'app-search',
-  imports: [BasementJourneyDatePipe, JourneyDeviation],
+  imports: [BasementJourneyDatePipe, JourneyDeviation, JourneyInfoHeader],
   templateUrl: './search.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './search.css',

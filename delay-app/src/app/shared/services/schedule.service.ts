@@ -147,7 +147,7 @@ export class ScheduleService {
     let parsedJsonData = joureyJsonParser.getJourneys()
     console.log(parsedJsonData)
     let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
-    let rescheduleMinTime = journeyDelayHandler?.analyzeData(parsedJsonData) as number
+    let rescheduleMinTime = journeyDelayHandler.analyzeData(parsedJsonData) as number
 
     const now = new Date();
     let dateToCheck = new Date(now.valueOf() + rescheduleMinTime*60*1000);
@@ -166,7 +166,7 @@ export class ScheduleService {
         let joureyJsonParser = new JourneyJsonParserHandler(response)
         let parsedJsonData = joureyJsonParser.getJourneys()
         let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
-        let rescheduleMinTime = journeyDelayHandler?.analyzeData(parsedJsonData) as number
+        let rescheduleMinTime = journeyDelayHandler.analyzeData(parsedJsonData) as number
 
         const now = new Date();
         let dateToCheck = new Date(now.valueOf() + rescheduleMinTime*60*1000);

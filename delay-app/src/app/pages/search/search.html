@@ -2,29 +2,38 @@
 <br>
 <div class="container">
     @for (item of delayedJourneys(); let i = $index; track i){
-        <div class="container col-xl ">
-            <table class="table rounded">
-                <div>
-                    <P>
-                        <b><span class="left-offset station-text-header">{{ item.getDepartureStation() }}</span></b>
-                        <span class="fa-solid fa-arrow-right-long journey-arrow"></span> 
-                        <b><span class="left-offset station-text-header">{{ item.getArrivalStation() }}</span></b>
+        <div class="container col-xl test-border">
+            <table class="table">
+                <div class="left-offset"> 
+                    <P class="minimal-bottom-margin no-padding left-offset">
+                        <b class="station-text-header">{{ item.getDepartureStation() }}</b>
+                        <b class="fa-solid fa-arrow-right-long journey-arrow"></b> 
+                        <b class="station-text-header">{{ item.getArrivalStation() }}</b>
                     </P>
                 </div>
-                <div class="small-text">
-                    <p>
-                        <span class="left-update-text left-offset">Last Updated: {{ item.dateChecked | basementJourneyDate }}</span>
-                        <span class="right-update-text left-offset">Next Update: {{ item.dateToCheck | basementJourneyDate }}</span>
+                <div class="left-offset">
+                    <p class="small-text no-padding no-margin minimal-bottom-margin">
+                        <span class="no-padding">Last Updated: {{ item.dateChecked | basementJourneyDate }}</span>
+                        <span class="no-padding left-margin">Next Update: {{ item.dateToCheck | basementJourneyDate }}</span>
                     </p>
                 </div>
                 @for (entry of item.delayedJourneys; let i = $index; track i){
-                    @for (journey of entry[1]; let i = $index; track i){
-                        <p>
-                            <app-journey-deviation [routeStation]=journey.from />
-                            <i class="fa-solid fa-arrow-right-long journey-arrow left-offset"></i> 
-                            <app-journey-deviation [routeStation]=journey.to />
-                        </p>
-                    } 
+                    <div class="border">
+                        @if( entry[1].length >= 2){
+                            <p class="no-padding no-margin left-margin small-text">
+                                <i class="fa-brands fa-readme no-padding no-margin"></i> 
+                                This is a multi-step journey, some journey-segments may not show as they might not be delayed.
+                        }
+                        @for (journey of entry[1]; let i = $index; track i){
+                            <app-journey-info-header [journey]=journey />
+                            <p class="no-padding no-margin left-margin">
+                                <app-journey-deviation class="no-padding no-margin" [routeStation]=journey.from />
+                                <i class="fa-solid fa-arrow-right-long no-padding no-margin journey-arrow left-margin"></i> 
+                                <app-journey-deviation class="no-padding no-margin left-margin" [routeStation]=journey.to />
+                            </p>
+                            <br class="small-break">
+                        } 
+                    </div>
                 } @empty {
                         <p class="left-offset">No Delays found yet...</p>
                 }

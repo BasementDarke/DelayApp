@@ -1,0 +1,11 @@
+@if( linkVehicle(); as link ){
+    <p class="small-text left-offset no-margin no-padding minimal-bottom-margin">
+        @if(link.type === "Train"){
+            <i class="fa-solid fa-train ">  </i>
+        }
+        @else if(link.type === "Bus"){
+            <i class="fa-solid fa-bus-simple">  </i>
+        }
+        {{ link.name }}
+    </p>
+}

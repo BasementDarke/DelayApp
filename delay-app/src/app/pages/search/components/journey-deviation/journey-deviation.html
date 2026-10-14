@@ -1,9 +1,18 @@
 @if( routeStation(); as station ){
-    @if( station.deviation !== null){
+    <span class="no-margin no-padding">
+        @if( station.deviation !== null){
+            <b class="delay-text">{{ formatDateDeviation(station.time, station.deviation) | date:'HH:mm' }}</b>
+            <del class="deviation-text">{{ station.time | date:'HH:mm' }}</del>
+        }
+        @else {
+            <b>{{ station.time | date:'HH:mm' }} </b>
+        }
+    </span>
+    <!-- @if( station.deviation !== null){
         <b><span class="delay-text left-offset">{{ formatDateDeviation(station.time, station.deviation) | date:'HH:mm' }}</span></b>
         <del class="deviation-text left-offset">{{ station.time | date:'HH:mm' }}</del>
     }
     @else {
         <b class="offset-7-left">{{ station.time | date:'HH:mm' }} </b>
-    }
+    } -->
 }

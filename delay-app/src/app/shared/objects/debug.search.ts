@@ -4,6 +4,7 @@ import test2 from "./test2.json"
 import test3 from "./test3.json"
 import testballs from "./testballs.json"
 import malmoLund from "./malmoLund.json"
+import helsingLundDelay from "./helsingLundDelayTest.json"
 
 export class DEBUGJsonString {
     public testBalls: string
@@ -15,7 +16,7 @@ export class DEBUGJsonString {
     private testMap: Map<number, JourneyResponse>
 
     constructor(){
-        this.testBalls = JSON.stringify(testballs)
+        this.testBalls = JSON.stringify(helsingLundDelay)
         let yesBalls: JourneyResponse = JSON.parse(this.testBalls)
 
         this.testMalmoLund = JSON.stringify(malmoLund)

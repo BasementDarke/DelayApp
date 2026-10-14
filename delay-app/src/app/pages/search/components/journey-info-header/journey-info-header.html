@@ -1,0 +1,10 @@
+@if( journey(); as link){
+    <p class="no-padding minimal-bottom-margin left-offset">
+        <span class="no-padding">
+            {{ link.from?.name }}
+            <i class="fa-solid fa-arrow-right-long journey-arrow"></i>
+            {{ link.to?.name }}
+        </span>
+    </p>
+    <app-journey-link-vehicle class="no-padding no-margin" [linkVehicle]=link.line />
+}

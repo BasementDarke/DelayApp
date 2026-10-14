@@ -1,0 +1,38 @@
+/* div{
+    padding: 0px;
+    padding-left: 7px;
+    font-size: 12px;
+    background: none;
+} */
+
+.no-padding{
+    padding: 0px;
+}
+
+.no-margin{
+    margin: 0px;
+}
+
+.left-offset{
+    margin-left: 7px;
+}
+
+.small-text{
+    font-size: 12px;
+}
+
+i{
+    margin: 0px;
+    padding: 0px;
+}
+
+.minimal-bottom-margin{
+    margin-bottom: 5px;
+}
+
+p{
+    width: auto;
+    background-color: azure;
+    border-width: auto;
+    border-radius: 5px;
+}

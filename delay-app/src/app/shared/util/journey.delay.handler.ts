@@ -47,7 +47,7 @@ export class JourneyDelayHandler{
         for(let [key, value] of this.activeTrackedJourneys){
             let routeLink = value[0]
             let departureTime = new Date((routeLink.from?.time) as string)
-            if(minDateSec == undefined){
+            if(minDateSec === undefined){
                 minDateSec = departureTime.getSeconds()
                 initialDeviationMin = routeLink.from?.deviation as number
                 continue
@@ -71,12 +71,12 @@ export class JourneyDelayHandler{
         let offsetMin = 1
         if(delayed){
             let deltaTime = TrainGlobals.TrainDelayMinTimer - Math.abs(diffMin)
-            if(deltaTime <0){
+            if(deltaTime < 0){
                 deltaTime = 0
             }
             return deltaTime + offsetMin
         }
-        else if(initialDeviationMin != 0){
+        else if(initialDeviationMin !== 0){
             return diffMin + initialDeviationMin + offsetMin
         }
         return diffMin + TrainGlobals.TrainDelayMinTimer + offsetMin

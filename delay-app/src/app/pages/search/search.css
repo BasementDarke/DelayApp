@@ -1,4 +1,4 @@
-.table{
+/* .table{
     border: 1px solid black;
     border-radius: 20px;
 }
@@ -57,3 +57,73 @@ b{
 .station-text-header{
     color: brown;
 }
+
+app-journey-info-header{
+    margin-bottom: 20px;
+} */
+
+.container{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: flex-start;
+}
+
+table{
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.station-text-header{
+    color: brown;
+}
+
+b{
+    margin: 0px;
+    padding: 0px;
+}
+
+.left-offset{
+    padding-left: 7px;
+}
+
+.journey-arrow{
+    margin-left: 5px;
+    margin-right: 3px;
+}
+
+.minimal-bottom-margin{
+    margin-bottom: 2px;
+}
+
+.small-text{
+    font-size: 12px;
+}
+
+.no-padding{
+    padding: 0px;
+}
+
+.no-margin{
+    margin: 0px;
+}
+
+.left-margin{
+    margin-left: 5px;
+}
+
+.i{
+    padding-left: 0px;
+}
+
+.border{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.small-break{
+    margin: 0px;
+    padding: 0px;
+}
+
+

@@ -15,10 +15,10 @@ export class JourneyJsonParserHandler {
         for(let journey of this.jsonData.journeys){
             let routeLinkArray = new Array<RouteLink>
             for(let routeLink of journey.routeLinks){
-                if(routeLink.id === null){
-                    continue;
-                }
-                else{
+                if(routeLink.id !== null){
+                    if(routeLink.id === null){
+                        console.log("WTFFFFF")
+                    }
                     routeLinkArray.push(routeLink);
                 }
             }
