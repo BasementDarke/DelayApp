@@ -12,9 +12,9 @@ namespace DelayApi.Controllers
     public class JourneyController : Controller
     {
         private readonly JourneyService _journeyService;
-        public JourneyController()
+        public JourneyController(JourneyService journeyService)
         {
-            _journeyService = new JourneyService();
+            _journeyService = journeyService;
         }
 
         [HttpGet]

@@ -1,3 +1,4 @@
+using DelayApi.Services;
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddSingleton<JourneyService>();
 
 builder.Services.ConfigureHttpJsonOptions(options =>
 {

@@ -1,3 +1,3 @@
 export namespace TrainGlobals {
-    export let TrainDelayMinTimer = 20;
+    export let TrainDelayThreshholdMinute = 20;
 }

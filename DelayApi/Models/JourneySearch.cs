@@ -2,8 +2,8 @@
 {
     public class JourneySearch
     {
-        public int TaskKey { get; set; }
-        public string? DepartureStation { get; set; }
-        public string? ArrivalStation { get; set; }
+        public required int TaskKey { get; set; }
+        public required string? DepartureStation { get; set; }
+        public required string? ArrivalStation { get; set; }
     };
 }

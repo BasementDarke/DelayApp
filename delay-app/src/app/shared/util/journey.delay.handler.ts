@@ -1,5 +1,6 @@
 import { TrainGlobals } from "../constants/globals"
-import { RouteLink } from "../models/journey.response"
+import { JourneyResponse, RouteLink } from "../models/journey.response"
+import { JourneyJsonParserHandler } from "./journey.json.parser.handler"
 
 export class JourneyDelayHandler{
     private assignedTaskKey : Number
@@ -16,7 +17,10 @@ export class JourneyDelayHandler{
         return this.delayedJourneys
     }
 
-    public analyzeData(parsedData: Map<string, RouteLink[]>){
+    public analyzeResponse(response: JourneyResponse){
+        let joureyJsonParser = new JourneyJsonParserHandler(response)
+        let parsedData = joureyJsonParser.getJourneys()
+
         let foundKeys = new Array<String>()
 
         // add or update any journey 
@@ -48,20 +52,20 @@ export class JourneyDelayHandler{
             let routeLink = value[0]
             let departureTime = new Date((routeLink.from?.time) as string)
             if(minDateSec === undefined){
-                minDateSec = departureTime.getSeconds()
-                initialDeviationMin = routeLink.from?.deviation as number
+                minDateSec = Math.floor(departureTime.valueOf()/1000)
+                initialDeviationMin = routeLink.from?.deviation === null ? 0 : routeLink.from?.deviation as number 
                 continue
             }
-            else if(departureTime.getSeconds() <= minDateSec){
-                minDateSec = departureTime.getSeconds()
-                initialDeviationMin = routeLink.from?.deviation as number
+            else if(Math.floor(departureTime.valueOf()/1000) <= minDateSec){
+                minDateSec = Math.floor(departureTime.valueOf()/1000)
+                initialDeviationMin = routeLink.from?.deviation === null ? 0 : routeLink.from?.deviation as number 
             }
         }
 
         // WARNING, this is the only code i believe which will cause most
         // our the errors
-
-        let diffSec = minDateSec! - (new Date().getSeconds())
+        let nowSec = Math.floor(new Date().valueOf()/1000)
+        let diffSec = minDateSec! - nowSec
         let diffMin = Math.floor(diffSec/60)
         let delayed = false
         if(diffSec < 0){
@@ -70,7 +74,7 @@ export class JourneyDelayHandler{
 
         let offsetMin = 1
         if(delayed){
-            let deltaTime = TrainGlobals.TrainDelayMinTimer - Math.abs(diffMin)
+            let deltaTime = TrainGlobals.TrainDelayThreshholdMinute - Math.abs(diffMin)
             if(deltaTime < 0){
                 deltaTime = 0
             }
@@ -79,7 +83,7 @@ export class JourneyDelayHandler{
         else if(initialDeviationMin !== 0){
             return diffMin + initialDeviationMin + offsetMin
         }
-        return diffMin + TrainGlobals.TrainDelayMinTimer + offsetMin
+        return diffMin + TrainGlobals.TrainDelayThreshholdMinute + offsetMin
 
     }
 
@@ -89,7 +93,7 @@ export class JourneyDelayHandler{
 
         for(let routeLink of routeLinks){
             let from = routeLink.from
-            let fromDeviation = from?.deviation as number // i hope this works
+            let fromDeviation = from?.deviation as number
             if(fromDeviation === null || undefined){
                 fromDeviation = 0
             }
@@ -106,7 +110,7 @@ export class JourneyDelayHandler{
                 maxArrivalDeviation = toDeviation
             }
 
-            if(maxArrivalDeviation >= TrainGlobals.TrainDelayMinTimer || maxDepartureDeviation >= TrainGlobals.TrainDelayMinTimer){
+            if(maxArrivalDeviation >= TrainGlobals.TrainDelayThreshholdMinute || maxDepartureDeviation >= TrainGlobals.TrainDelayThreshholdMinute){
                 this.delayedJourneys.set(key, routeLinks);
             }
         }

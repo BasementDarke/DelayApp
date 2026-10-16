@@ -8,7 +8,6 @@ export class JourneyJsonParserHandler {
         this.jsonData = jsonData;
         this.journeys = new Map<string, RouteLink[]>()
         this.parse()
-        console.log(this.journeys)
     }
 
     private parse() {
@@ -16,9 +15,6 @@ export class JourneyJsonParserHandler {
             let routeLinkArray = new Array<RouteLink>
             for(let routeLink of journey.routeLinks){
                 if(routeLink.id !== null){
-                    if(routeLink.id === null){
-                        console.log("WTFFFFF")
-                    }
                     routeLinkArray.push(routeLink);
                 }
             }

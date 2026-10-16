@@ -2,6 +2,7 @@
 using Microsoft.Playwright;
 using System.Text.Json;
 using System.Xml.Linq;
+using DelayApi.Services;
 
 namespace DelayApi.Services
 {
@@ -26,6 +27,8 @@ namespace DelayApi.Services
                 })
                 .GetAwaiter()
                 .GetResult();
+
+          
         }
 
         public async Task<JourneyResponse> SearchAsync(string departureStation, string arrivalStation, int taskKey)

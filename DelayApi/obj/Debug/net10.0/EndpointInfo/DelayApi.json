@@ -59,6 +59,11 @@
   "components": {
     "schemas": {
       "JourneySearch": {
+        "required": [
+          "taskKey",
+          "departureStation",
+          "arrivalStation"
+        ],
         "type": "object",
         "properties": {
           "taskKey": {

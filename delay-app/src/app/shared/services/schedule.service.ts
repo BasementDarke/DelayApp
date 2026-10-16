@@ -40,7 +40,7 @@ export class ScheduleService {
     this.schedule = new Array<TaskObject>;
     this.runningSchedule = false
     this.test = new DEBUGJsonString()
-    this.builder()
+    //this.builder()
   }
 
   registerJourneyTask(parameters: Map<ParameterKey, string>, func: Function){
@@ -86,8 +86,8 @@ export class ScheduleService {
     setTimeout(() => {
       this._delayedJourneyTracker().at(taskObject.taskKey)?.setUpdateStatus(true)
       this._delayedJourneyTracker().at(taskObject.taskKey)?.setDateChecked(date)
-      this.DEBUGSearech(taskObject.parameters) // DEBUG task
-      //this.taskSearchJourneys(taskObject.parameters) // Correct task
+      //this.DEBUGSearech(taskObject.parameters) // DEBUG task
+      this.taskSearchJourneys(taskObject.parameters) // Correct task
     }, (sec*1000))
   }
 
@@ -135,7 +135,7 @@ export class ScheduleService {
       ]),
       this.taskSearchJourneys 
     )
-    this.scheduleTask(taskKey, 2);
+    //this.scheduleTask(taskKey, 2);
     return
     // debug purposes
     // will define some tasks to register and to see if things work
@@ -143,14 +143,12 @@ export class ScheduleService {
 
   DEBUGSearech(parameters: ParameterBlock){
     let journeyResponse = this.test.getJourneyResponseDEBUG(parameters.taskKey) as JourneyResponse
-    let joureyJsonParser = new JourneyJsonParserHandler(journeyResponse)
-    let parsedJsonData = joureyJsonParser.getJourneys()
-    console.log(parsedJsonData)
     let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
-    let rescheduleMinTime = journeyDelayHandler.analyzeData(parsedJsonData) as number
+    let rescheduleMinTime = journeyDelayHandler.analyzeResponse(journeyResponse) as number
 
     const now = new Date();
     let dateToCheck = new Date(now.valueOf() + rescheduleMinTime*60*1000);
+    console.log(`DATE TO CHECL ${dateToCheck}`)
     this._delayedJourneyTracker().at(parameters.taskKey)?.setDateToCheck(dateToCheck)
     this._delayedJourneyTracker().at(parameters.taskKey)?.setDelayedJourneys(journeyDelayHandler?.getDelayData())
     this._delayedJourneyTracker().at(parameters.taskKey)?.setUpdateStatus(false)
@@ -163,10 +161,8 @@ export class ScheduleService {
     return this.journeyService.getSchedule(parameters).subscribe(
       (response) => {
         console.log(response);
-        let joureyJsonParser = new JourneyJsonParserHandler(response)
-        let parsedJsonData = joureyJsonParser.getJourneys()
         let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
-        let rescheduleMinTime = journeyDelayHandler.analyzeData(parsedJsonData) as number
+        let rescheduleMinTime = journeyDelayHandler.analyzeResponse(response) as number
 
         const now = new Date();
         let dateToCheck = new Date(now.valueOf() + rescheduleMinTime*60*1000);

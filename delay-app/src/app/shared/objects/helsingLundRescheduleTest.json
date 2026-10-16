@@ -1,0 +1,277 @@
+{
+  "api": "se.skanetrafiken.api",
+  "time": "2026-10-16T00:46:41Z",
+  "id": "c97a5a113bc541e385dad236b63dca92",
+  "journeys": [
+    {
+      "id": 0,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xNgAAAAAAAAAJAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQzAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNTAxNTAxXzIwMjYxMDE2",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000399028378|2026-10-16",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-16T02:31:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-16T03:25:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1501",
+            "lineNo": 12000815
+          }
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xNgAAAAAAAAAJAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ4AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNzAxNzA1XzIwMjYxMDE2",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000389455803|2026-10-16",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-16T02:51:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-16T03:32:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1705",
+            "lineNo": 12000817
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xNgAAAAAAAAACAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDIxAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQxADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgwNDAxMDE1XzIwMjYxMDE2",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000398265857|2026-10-16",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-16T03:06:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-16T03:36:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1015",
+            "lineNo": 12000804
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xNgAAAAAAAAAJAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ4AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNzAxNzU1XzIwMjYxMDE2",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000389456305|2026-10-16",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-16T03:21:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-16T04:02:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1755",
+            "lineNo": 12000817
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xNgAAAAAAAAADAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDI4AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQxADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgwNTAxMDE5XzIwMjYxMDE2",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000397239513|2026-10-16",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-16T03:36:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-16T04:06:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1019",
+            "lineNo": 12000805
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xNgAAAAAAAAAJAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ5AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNTAxNTAzXzIwMjYxMDE2",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000399028400|2026-10-16",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-16T03:31:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-16T04:25:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1503",
+            "lineNo": 12000815
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xNgAAAAAAAAAJAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ4AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNzAxNzA3XzIwMjYxMDE2",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000389455840|2026-10-16",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-16T03:51:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-16T04:32:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1707",
+            "lineNo": 12000817
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xNgAAAAQAAAAGAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDQ5AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQxADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgwNDAxMDIzXzIwMjYxMDE2",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000398265899|2026-10-16",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-16T04:06:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-16T04:36:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1023",
+            "lineNo": 12000804
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xNgAAAAAAAAAEAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDI5AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgwNjAxMzIzXzIwMjYxMDE2",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000397530013|2026-10-16",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-16T04:10:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-16T04:42:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Öresundståg",
+            "type": "TrainOresund",
+            "no": "1323",
+            "lineNo": 12000806
+          }
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "journeyKey": "2;rO0ABXe3AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMjAyNi0xMC0xNgAAAAAAAAAJAB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgzMjQxMDI4AB9TVDpTRToyNzY6UXVheTo5MDIyMDEyMDgxMjE2MDQyADdTVDpTRToyNzY6RGF0ZWRTZXJ2aWNlSm91cm5leTo5MDE1MDEyMDgxNzAxNzU3XzIwMjYxMDE2",
+      "routeLinks": [
+        {
+          "id": "ST¤SE¤276¤ServiceJourney¤1120000389456406|2026-10-16",
+          "from": {
+            "name": "Helsingborg C",
+            "time": "2026-10-16T04:21:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "to": {
+            "name": "Lund C",
+            "time": "2026-10-16T05:02:00Z",
+            "deviation": null,
+            "passed": null
+          },
+          "line": {
+            "name": "Pågatåg",
+            "type": "Train",
+            "no": "1757",
+            "lineNo": 12000817
+          }
+        }
+      ]
+    }
+  ]
+}
