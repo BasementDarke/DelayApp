@@ -17,7 +17,7 @@ export class DEBUGJsonString {
     private testMap: Map<number, JourneyResponse>
 
     constructor(){
-        this.testBalls = JSON.stringify(helsingLundReschedule)
+        this.testBalls = JSON.stringify(helsingLundDelay)
         let yesBalls: JourneyResponse = JSON.parse(this.testBalls)
 
         this.testMalmoLund = JSON.stringify(malmoLund)

@@ -1,64 +1,62 @@
-<div class="form-container">
-  <div class="journey-config-form">
-
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-      <div class="input-container">
-        <div class="input-group top-input">
-          <label for="departureStationInput" class="col-sm form-label form-item">From: </label>
-          <div class="col-xl">
-            <input type="text" class="form-input form-item" placeholder="Station" id="departureStationInput" formControlName="departureStation">
-          </div>
-        </div>
-        <div class="input-group bot-input">
-          <label for="arrivalStationInput" class="col-sm form-label form-item">To: </label>
-          <div class="col-xl">
-            <input type="text" class="form-input form-item" placeholder="Station" id="arrivalStationInput" formControlName="arrivalStation">
-          </div>
-        </div>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Add Stations</button>
-    </form>
-
-  </div>
-</div>
-
 <div class="container text-left">
+  <div class="row justify-content-start">
+    <p class="col-6 journey-text">
+      <b>Input your journey</b>
+    </p>
+  </div>
+
+  <div class="row justify-content-start">
+    <p class="col-6 notice-text">
+      <i class="fa-solid fa-circle-info"></i>
+      Important Note: Station names must perfectly match real stations as viewed on the Skanetraffiken website.
+    </p>
+  </div>
+
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <div class="row justify-content-md-center">
-      <div class="test-item left-top-item col-1 ">
-        <label for="departureStationInput" class="test-label">From</label>
+      <div class="test-item left-top-item col-1 grow-1">
+        <b><label for="departureStationInput" class="test-label">From:</label></b>
       </div>
-      <div class="test-item right-top-item col-3">
+      <div class="test-item right-top-item col-3 grow-3">
         <input type="text" class="test-input" placeholder="Station" id="departureStationInput" formControlName="departureStation">
       </div>
     </div>
 
     <div class="row justify-content-md-center">
-      <div class="test-item left-bot-item col-1">
-        <label for="arrivalStationInput" class="test-label">To</label>
+      <div class="test-item left-bot-item col-1 grow-1">
+        <b><label for="arrivalStationInput" class="test-label">To:</label></b>
       </div>
-      <div class="test-item right-bot-item col-3">
+      <div class="test-item right-bot-item col-3 grow-3">
         <input type="text" class="test-input" placeholder="Station" id="arrivalStationInput" formControlName="arrivalStation">
       </div>
     </div>
 
-    <div class="row justify-content-md-center">
-      <div class="col-2">
-        <button type="submit" class="col-md-auto btn btn-primary">Add Stations</button>
-      </div>
-      <div class="col-2">
-        <button (click)="onClick()" class="col-md-auto btn btn-secondary">Begin Search</button>
+    <div class="row justify-content-left">
+      <div>
+        <button type="submit" class="btn" id="button-main">Add Stations</button>
+        <button (click)="onClick()" class="btn gray btn-left-margin" id="button-sec">Start Search</button>
       </div>
     </div>
 
   </form>
-</div>
 
+  <div class="row justify-content-md-center">
+    @if (journeyConfigs().at(0) !== undefined){
+      <p class="journey-text">
+        <b>Selected Journeys</b>
+      </p>
+    }
+    <ul class="list-group">
+      @for (config of journeyConfigs(); let i = $index; track i){
+        <li class="list-group-item">{{ config.at(0) }} <i class="fa-solid fa-arrow-right-long journey-arrow"></i> 
+          {{ config.at(1) }}
+          <div>
+            <i class="fa-solid fa-trash-can i-hover" (click)="deleteConfigItem(i)"></i>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
 
-
-<div>
-    <button (click)="onClick()">Begin Search</button>
 </div>

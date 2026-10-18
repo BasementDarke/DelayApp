@@ -1,5 +1,33 @@
 .btn{
     color: azure;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    background-color: brown;
+}
+
+#button-main:hover{
+    transition: 0.2s;
+    background-color: rgb(153, 108, 108);
+}
+
+#button-sec:hover{
+    transition: 0.2s;
+    background-color: rgb(108, 129, 153);
+}
+
+.gray{
+    background-color: gray;
+}
+
+
+.btn-left-margin{
+    margin-left: 20px;
+}
+
+.container{
+    max-width: 960px;
 }
 
 .form-container {
@@ -58,24 +86,37 @@
 }
 
 .test-item{
-    padding: 2px;
+    padding: 10px;
     border: 1px solid black;
+    font-size: 30px;
 }
 
 .col-1{
     text-align: center;
 }
 
+.grow-1{
+    flex-grow: 1;
+}
+
+.grow-3{
+    flex-grow: 3;
+}
+
 .left-top-item{
     border-radius: 10px 0px 0px 0px;
+    border-right: none;
+    border-bottom: none;
 }
 
 .left-bot-item{
     border-radius: 0px 0px 0px 10px;
+    border-right: none;
 }
 
 .right-top-item{
     border-radius: 0px 10px 0px 0px;
+    border-bottom: none;
 }
 
 .right-bot-item{
@@ -91,9 +132,33 @@ input:focus{
     outline: none;
 }
 
-.test-label{
-    
+.journey-text{
+    margin-bottom: 1rem;
+    font-size: 40px;
+    color: brown;
 }
+
+.notice-text{
+    font-size: 15px;
+}
+
+.list-group-item{
+    width: 50%;
+    font-size: 20px;
+}
+
+.i-hover:hover{
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: rgb(255, 159, 159);
+}
+
+input{
+    background-color: rgb(241, 241, 241);
+}
+
+
+
 
 
 

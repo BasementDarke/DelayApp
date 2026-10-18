@@ -14,6 +14,7 @@ import { ConfigService } from './config.service';
 import { JourneyDelay } from '../objects/journey.delay';
 import { JourneyResponse, RouteLink } from '../models/journey.response';
 import { DEBUGJsonString } from '../objects/debug.search';
+import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -92,7 +93,7 @@ export class ScheduleService {
   }
 
   public configBuild(){
-    let stationsConfig = this.configService.getStationsCOnfig()
+    let stationsConfig = this.configService.getStationsConfig()
     for(let tuple of stationsConfig){
       let departureStation = tuple[0]
       let arrivalStation = tuple[1]
@@ -135,7 +136,7 @@ export class ScheduleService {
       ]),
       this.taskSearchJourneys 
     )
-    //this.scheduleTask(taskKey, 2);
+    this.scheduleTask(taskKey, 2);
     return
     // debug purposes
     // will define some tasks to register and to see if things work
@@ -158,9 +159,16 @@ export class ScheduleService {
   }
 
   taskSearchJourneys(parameters: ParameterBlock){
-    return this.journeyService.getSchedule(parameters).subscribe(
+    return this.journeyService.getSchedule(parameters).pipe(
+      tap({error: (response) => {
+        if(response.status === 400){
+          this._delayedJourneyTracker().at(parameters.taskKey)?.setIfApiResponse(false)
+        }
+      }})
+    )
+    .subscribe(
       (response) => {
-        console.log(response);
+        console.log(`RESPONSE VALUE: ${response}`);
         let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
         let rescheduleMinTime = journeyDelayHandler.analyzeResponse(response) as number
 
@@ -173,6 +181,11 @@ export class ScheduleService {
         this.scheduleTask(parameters.taskKey, rescheduleMinTime * 60)
       }
     );
+    // if response is of error 404
+    // it failed and we need to warn the user and not schedule anything else
+    // we can have another signal to keep track of errors
+    // Like the signal we have now, for each taskkey we will save room for any messages to pass to the frontend
+    // If a message is seen we display it instead of anything else.
   }
 
   public readDelayedTrainData(){

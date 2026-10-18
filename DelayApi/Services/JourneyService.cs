@@ -49,10 +49,18 @@ namespace DelayApi.Services
                 var toStationLocator = "[id='toDestinationAutocompleteCombobox']";
                 var toStationOptionsLocator = "[id='toDestinationOption-0']";
 
-                await page.FillAsync(fromStationLocator, departureStation);
-                await page.ClickAsync(fromStationOptionsLocator);
-                await page.FillAsync(toStationLocator, arrivalStation);
-                await page.ClickAsync(toStationOptionsLocator);
+                try
+                {
+                    await page.FillAsync(fromStationLocator, departureStation);
+                    await page.ClickAsync(fromStationOptionsLocator);
+                    await page.FillAsync(toStationLocator, arrivalStation);
+                    await page.ClickAsync(toStationOptionsLocator);
+                }
+                catch
+                {
+                    return null;
+                }
+                
 
                 var responsePromise = await page.RunAndWaitForResponseAsync(async () =>
                 {

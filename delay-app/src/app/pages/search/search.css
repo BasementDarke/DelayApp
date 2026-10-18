@@ -1,67 +1,3 @@
-/* .table{
-    border: 1px solid black;
-    border-radius: 20px;
-}
-
-.container{
-    flex-direction: column;
-    flex-wrap: nowrap;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.delay-text{
-    padding: 2px;
-    margin-left: 2px;
-    background-color: rgb(255, 255, 167);
-}
-
-.offset-7-left{
-    margin-left: 7px
-}
-
-.deviation-text{
-    margin-left: 5px;
-}
-
-.journey-arrow{
-    margin-left: 5px;
-    margin-right: 3px;
-}
-
-.small-text{
-    font-size: 12px;
-}
-
-.right-update-text{
-    margin-left: 10px
-}
-
-p{
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-span{
-    padding: 0px;
-}
-
-b{
-    padding: 0px;
-}
-
-.left-offset{
-    margin-left: 5px;
-}
-
-.station-text-header{
-    color: brown;
-}
-
-app-journey-info-header{
-    margin-bottom: 20px;
-} */
-
 .container{
     flex-direction: column;
     flex-wrap: nowrap;
@@ -74,6 +10,10 @@ table{
     border-radius: 20px;
 }
 
+span{
+    background-color: rgb(241, 241, 241);
+}
+
 .station-text-header{
     color: brown;
 }
@@ -81,6 +21,7 @@ table{
 b{
     margin: 0px;
     padding: 0px;
+    background-color: rgb(241, 241, 241);
 }
 
 .left-offset{
@@ -110,6 +51,14 @@ b{
 
 .left-margin{
     margin-left: 5px;
+}
+
+app-journey-deviation{
+    background-color: rgb(241, 241, 241);
+}
+
+i{
+    background-color: rgb(241, 241, 241);
 }
 
 .i{

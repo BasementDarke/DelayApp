@@ -4,17 +4,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ConfigService {
-  stationsConfig: Array<[string, string]>
+  // the boolean represents if this config has been registred
+  stationsConfig: Array<[string, string, boolean]>
 
   constructor(){
-    this.stationsConfig = new Array<[string, string]>
+    this.stationsConfig = new Array<[string, string, boolean]>
   }
 
   public registerStationsConfig(departureStation: string, arrivalStation: string){
-    this.stationsConfig.push([departureStation, arrivalStation])
+    this.stationsConfig.push([departureStation, arrivalStation, false])
   }
 
-  public getStationsCOnfig(){
-    return this.stationsConfig
+  public getStationsConfig(){
+    let l = new Array<[string, string]>
+    for(let tuple of this.stationsConfig){
+      if(tuple[2] === false){
+        l.push([tuple[0], tuple[1]])
+        tuple[2] = true
+      }
+    }
+    return l
   }
 }

@@ -135,13 +135,13 @@
           "from": {
             "name": "Ramlösa station",
             "time": "2026-10-14T21:35:00Z",
-            "deviation": 30,
+            "deviation": null,
             "passed": null
           },
           "to": {
             "name": "Lund C",
             "time": "2026-10-14T22:25:00Z",
-            "deviation": 30,
+            "deviation": null,
             "passed": null
           },
           "line": {

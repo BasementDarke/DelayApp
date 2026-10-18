@@ -5,11 +5,11 @@
         <div class="container col-xl test-border">
             <table class="table">
                 <div class="left-offset"> 
-                    <P class="minimal-bottom-margin no-padding left-offset">
+                    <p class="minimal-bottom-margin no-padding left-offset">
                         <b class="station-text-header">{{ item.getDepartureStation() }}</b>
                         <b class="fa-solid fa-arrow-right-long journey-arrow"></b> 
                         <b class="station-text-header">{{ item.getArrivalStation() }}</b>
-                    </P>
+                    </p>
                 </div>
                 <div class="left-offset">
                     <p class="small-text no-padding no-margin minimal-bottom-margin">
@@ -22,7 +22,7 @@
                         @if( entry[1].length >= 2){
                             <p class="no-padding no-margin left-margin small-text">
                                 <i class="fa-brands fa-readme no-padding no-margin"></i> 
-                                This is a multi-step journey, some journey-segments may not show as they might not be delayed.
+                                This is a multi-step journey.
                         }
                         @for (journey of entry[1]; let i = $index; track i){
                             <app-journey-info-header [journey]=journey />
@@ -35,7 +35,12 @@
                         } 
                     </div>
                 } @empty {
+                    @if(item.ifApiResponse() === true){
                         <p class="left-offset">No Delays found yet...</p>
+                    }
+                    @else{
+                        <p class="left-offset">Error 400, can not find stations</p>
+                    }
                 }
             </table>
         </div>

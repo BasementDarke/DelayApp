@@ -41,11 +41,9 @@ namespace DelayApi.Controllers
             var departureStation = journeySearch.DepartureStation;
             var arrivalStation = journeySearch.ArrivalStation;
 
-            Console.WriteLine(taskKey);
-            Console.WriteLine(departureStation);
-            Console.WriteLine(arrivalStation);
             JourneyResponse? responseData = await _journeyService.SearchAsync(departureStation, arrivalStation, taskKey);
-            return responseData is null ? NotFound() : Ok(responseData);
+            Console.WriteLine(responseData);
+            return responseData is null ? BadRequest() : Ok(responseData);
         }
 
         // return NotFound if search fails, for error purposes
