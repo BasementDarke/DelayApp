@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConfigService } from '../../shared/services/config.service';
+import { ToastService } from '../../shared/services/toast.service';
 
 @Component({
   selector: 'app-config',
@@ -18,6 +19,7 @@ export class Config {
   private formBuilder = inject(NonNullableFormBuilder)
   private router = inject(Router)
   private configService = inject(ConfigService)
+  readonly toastService = inject(ToastService);
 
   private _journeyConfigs = signal<Array<[string, string]>>([])
   readonly journeyConfigs = this._journeyConfigs.asReadonly()
@@ -33,15 +35,14 @@ export class Config {
 
   onSubmit(){
     if(this.form.invalid){
-      console.log("ERROR")
-      // ADD TOAST SERVICE LATER
+      this.toastService.showError("Invalid Form, please check input")
       return
     }
     else{
       let departureStation = this.form.value.departureStation as string
       let arrivalStation = this.form.value.arrivalStation as string
       this._journeyConfigs().push([departureStation, arrivalStation])
-      console.log("WORKED")
+      this.toastService.showSuccess("Journey Added")
       //this.configService.registerStationsConfig(this.form.value.departureStation!, this.form.value.arrivalStation!)
       this.form.controls['departureStation'].setValue("");
       this.form.controls['arrivalStation'].setValue("");
@@ -49,7 +50,6 @@ export class Config {
   }
 
   onClick(){
-    console.log("Begin Search")
     for(let item of this._journeyConfigs()){
       this.configService.registerStationsConfig(item[0], item[1])
     }
@@ -60,6 +60,7 @@ export class Config {
   // should save the configs to local storage
   // will make it way easier on reloads to see what is going on
   deleteConfigItem(id: number){
+    this.toastService.showError("Deleted Joruney")
     this.journeyConfigs().splice(id,1)
   }
 }

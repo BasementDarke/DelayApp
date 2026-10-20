@@ -1,6 +1,27 @@
-<p>homepage works!</p>
-<a [routerLink]="['config']">Configure</a>
-
 <div class="center" >
+    <p class="center header-text">
+        <b>Delay-App</b>
+    </p>
+    <p class="center header-under">
+        Version: 1.0.0
+    </p>
     <button type="button" class="btn btn-primary" (click)="onClick()">Configure</button>
+    <div class="top-margin text-normal">
+        <i class="fa-solid fa-circle-info"></i>
+        The app is currently quite bare-bones with many QoL features missing.
+    </div>
+    <div class="text-normal">
+        If there is anything you would like to see improved, message me directly!
+    </div>
+</div>
+
+<div class="center top-margin">
+    <p class="text-normal">
+        Features in development:
+    </p>
+    <ul class="list-group">
+        <li class="list-group-item">Local storage, to remember your slected Journeys</li>
+        <li class="list-group-item">More advanced Journey delay finder and tracker</li>
+        <li class="list-group-item">Navbar, to smoothly navigate the website</li>
+    </ul>
 </div>

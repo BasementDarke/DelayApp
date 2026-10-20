@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { ScheduleService } from './shared/services/schedule.service';
 import { HttpClient } from '@angular/common/http';
 import { JourneyService } from './shared/services/journey.service';
+import { ToastsComponent } from './pages/search/components/toasts/toasts-component/toasts-component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ToastsComponent],
   templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css'

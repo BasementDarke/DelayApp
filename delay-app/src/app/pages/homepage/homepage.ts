@@ -12,7 +12,6 @@ export class Homepage {
   private router = inject(Router)
 
   onClick(){
-    console.log("Configure")
     this.router.navigateByUrl("/config")
   }
 }
