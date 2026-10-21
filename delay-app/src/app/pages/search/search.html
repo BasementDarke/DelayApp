@@ -38,8 +38,13 @@
                     @if(item.ifApiResponse() === true){
                         <p class="left-offset">No Delays found yet...</p>
                     }
-                    @else{
-                        <p class="left-offset">Error 400, can not find stations</p>
+                    @else {
+                        @if (item.getErrorCode() === 400){
+                            <p class="left-offset">Error 400, can not find stations</p>
+                        }
+                        @else if (item.getErrorCode() === 500){
+                            <p class="left-offset">Error 500, backend offline</p>
+                        }
                     }
                 }
             </table>

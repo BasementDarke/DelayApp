@@ -11,6 +11,7 @@ export class JourneyDelay{
     public delayedJourneys: Map<string, RouteLink[]> | null
     private updating: boolean
     public apiResponse: boolean
+    public errorCode: number
 
     constructor(parameters: ParameterBlock, dateChecked: Date | null, dateToCheck: Date | null, delayedJourneys: Map<string, RouteLink[]> | null){
         this.parameterBlock = parameters
@@ -19,6 +20,7 @@ export class JourneyDelay{
         this.delayedJourneys = delayedJourneys
         this.apiResponse = true
         this.updating = true
+        this.errorCode = 200
     }
 
     getParameters(){
@@ -26,6 +28,14 @@ export class JourneyDelay{
             return undefined
         }
         return this.parameterBlock
+    }
+
+    setErrorCode(code: number){
+        this.errorCode = code
+    }
+
+    getErrorCode(){
+        return this.errorCode;
     }
 
     getDepartureStation(){

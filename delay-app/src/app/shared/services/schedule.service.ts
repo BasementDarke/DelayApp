@@ -149,7 +149,6 @@ export class ScheduleService {
 
     const now = new Date();
     let dateToCheck = new Date(now.valueOf() + rescheduleMinTime*60*1000);
-    console.log(`DATE TO CHECL ${dateToCheck}`)
     this._delayedJourneyTracker().at(parameters.taskKey)?.setDateToCheck(dateToCheck)
     this._delayedJourneyTracker().at(parameters.taskKey)?.setDelayedJourneys(journeyDelayHandler?.getDelayData())
     this._delayedJourneyTracker().at(parameters.taskKey)?.setUpdateStatus(false)
@@ -164,6 +163,7 @@ export class ScheduleService {
         if(response.status === 400){
           this._delayedJourneyTracker().at(parameters.taskKey)?.setIfApiResponse(false)
         }
+        this._delayedJourneyTracker().at(parameters.taskKey)?.setErrorCode(response.status)
       }})
     )
     .subscribe(
