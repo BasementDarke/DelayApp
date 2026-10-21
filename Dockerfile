@@ -17,7 +17,7 @@ WORKDIR /src
 
 COPY DelayApi.slnx /DelayApi
 
-COPY DelayApi.csproj /DelayAPi
+COPY DelayAPi/DelayApi.csproj /DelayAPi
 
 RUN dotnet restore /DelayAPi
 
