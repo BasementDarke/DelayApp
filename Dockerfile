@@ -21,9 +21,13 @@ RUN dotnet restore DelayApi/DelayApi.csproj
 
 COPY DelayApi/ DelayApi/
 
+
+
 RUN dotnet publish DelayApi/DelayApi.csproj \
     -c Release \
     -o /app/publish
+
+RUN dotnet tool install --global Microsoft.Playwright.CLI
 
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
