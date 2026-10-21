@@ -23,7 +23,6 @@ COPY DelayApi/ DelayApi/
 
 RUN dotnet publish DelayApi/DelayApi.csproj \
     -c Release \
-    --no-restore \
     -o /app/publish
 
 
