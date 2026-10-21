@@ -25,8 +25,8 @@ RUN dotnet publish DelayApi/DelayApi.csproj \
     -c Release \
     -o /app/publish
 
-RUN pwsh /app/publish/playwright.ps1 install
-RUN pwsh /app/publish/playwright.ps1 install-deps
+RUN pwsh bin/Debug/netX/playwright.ps1 install 
+RUN pwsh bin/Debug/netX/playwright.ps1 install-deps
 
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
