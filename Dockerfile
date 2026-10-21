@@ -25,7 +25,7 @@ RUN dotnet publish DelayApi/DelayApi.csproj \
     -c Release \
     -o /app/publish
 
-RUN pwsh /app/publish/playwright.ps1 install chromium
+RUN pwsh /app/publish/playwright.ps1 install
 
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
