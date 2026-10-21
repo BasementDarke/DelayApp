@@ -15,8 +15,6 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS dotnet-build
 
 WORKDIR /src
 
-COPY DelayApi/DelayApi.slnx DelayApi/
-
 COPY DelayApi/DelayApi.csproj DelayApi/
 
 RUN dotnet restore DelayApi/DelayApi.csproj
@@ -25,6 +23,7 @@ COPY DelayApi/ DelayApi/
 
 RUN dotnet publish DelayApi/DelayApi.csproj \
     -c Release \
+    --no-restore \
     -o /app/publish
 
 
