@@ -17,9 +17,9 @@ WORKDIR /src
 
 COPY DelayApi.slnx /DelayApi
 
-COPY DelayAPi/DelayApi.csproj DelayAPi/
+COPY DelayApi/DelayApi.csproj DelayApi/
 
-RUN dotnet restore /DelayAPi/DelayApi.csproj
+RUN dotnet restore /DelayApi/DelayApi.csproj
 
 COPY DelayApi/ DelayApi/
 
@@ -41,4 +41,4 @@ ENV ASPNETCORE_URLS=http://0.0.0.0:10000
 
 EXPOSE 10000
 
-ENTRYPOINT ["dotnet", "DelayAPi.dll"]
+ENTRYPOINT ["dotnet", "DelayApi.dll"]
