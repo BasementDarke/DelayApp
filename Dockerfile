@@ -25,10 +25,6 @@ RUN dotnet publish DelayApi/DelayApi.csproj \
     -c Release \
     -o /app/publish
 
-RUN pwsh bin/Debug/netX/playwright.ps1 install 
-RUN pwsh bin/Debug/netX/playwright.ps1 install-deps
-
-
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
 
 WORKDIR /app
@@ -36,6 +32,8 @@ WORKDIR /app
 COPY --from=dotnet-build /app/publish .
 
 COPY --from=angular-build /src/angular/dist/delay-app/browser ./wwwroot
+
+RUN pwsh /app/playwright.ps1 install --with-deps chromium
 
 ENV ASPNETCORE_URLS=http://0.0.0.0:10000
 
