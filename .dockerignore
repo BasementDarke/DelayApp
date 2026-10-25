@@ -1,7 +1,7 @@
 /bin/
 /obj/
 /node_modules/
-/.angular/
+**/.angular/
 .git/
 .gitignore
 .vscode/
