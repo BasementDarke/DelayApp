@@ -43,7 +43,6 @@ export class Config {
       let arrivalStation = this.form.value.arrivalStation as string
       this._journeyConfigs().push([departureStation, arrivalStation])
       this.toastService.showSuccess("Journey Added")
-      //this.configService.registerStationsConfig(this.form.value.departureStation!, this.form.value.arrivalStation!)
       this.form.controls['departureStation'].setValue("");
       this.form.controls['arrivalStation'].setValue("");
     }
@@ -57,8 +56,6 @@ export class Config {
     this.router.navigateByUrl("/search")
   }
 
-  // should save the configs to local storage
-  // will make it way easier on reloads to see what is going on
   deleteConfigItem(id: number){
     this.toastService.showError("Deleted Joruney")
     this.journeyConfigs().splice(id,1)

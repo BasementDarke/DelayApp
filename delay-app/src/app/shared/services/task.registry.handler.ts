@@ -18,7 +18,4 @@ export class TaskRegistryHandler {
     this.taskKey += 1
     return new ParameterBlock(generatedTaskKey, parameters)
   }
-  // Purpose:
-  // Take in task Parameters and create a key associated to the task
-  // Using the key save the parameters as a parameter block in parameter template service for retrival
 }

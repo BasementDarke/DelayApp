@@ -7,13 +7,10 @@ import { TaskKeyService } from './task.key.service';
 import { TaskRegistryService } from './task.registry.service';
 import { TaskObject } from '../objects/task.object';
 import { JourneyService } from './journey.service';
-import { HttpClient } from '@angular/common/http';
-import { JourneyJsonParserHandler } from '../util/journey.json.parser.handler';
 import { JourneyDelayHandler } from '../util/journey.delay.handler';
 import { ConfigService } from './config.service';
 import { JourneyDelay } from '../objects/journey.delay';
 import { JourneyResponse, RouteLink } from '../models/journey.response';
-import { DEBUGJsonString } from '../objects/debug.search';
 import { tap } from 'rxjs';
 
 @Injectable({
@@ -31,17 +28,8 @@ export class ScheduleService {
   public readonly delayedJourneyTracker = this._delayedJourneyTracker.asReadonly()
   private journeyDelayHandlers: Map<Number, JourneyDelayHandler>
 
-  private test: DEBUGJsonString
-
-  schedule: TaskObject[]
-  runningSchedule = false
-
   constructor(){
     this.journeyDelayHandlers = new Map<Number, JourneyDelayHandler>()
-    this.schedule = new Array<TaskObject>;
-    this.runningSchedule = false
-    this.test = new DEBUGJsonString()
-    //this.builder()
   }
 
   registerJourneyTask(parameters: Map<ParameterKey, string>, func: Function){
@@ -85,8 +73,7 @@ export class ScheduleService {
     setTimeout(() => {
       this._delayedJourneyTracker().at(taskObject.taskKey)?.setUpdateStatus(true)
       this._delayedJourneyTracker().at(taskObject.taskKey)?.setDateChecked(date)
-      //this.DEBUGSearech(taskObject.parameters) // DEBUG task
-      this.taskSearchJourneys(taskObject.parameters) // Correct task
+      this.taskSearchJourneys(taskObject.parameters)
     }, (sec*1000))
   }
 
@@ -113,45 +100,6 @@ export class ScheduleService {
     return
   }
 
-  builder(){
-    var taskKey = 0
-    taskKey = this.registerJourneyTask(
-      new Map<ParameterKey, string>([
-        [ParameterKey.EarrivalStation, "Lund C"],
-        [ParameterKey.EdepartureStation, "Helsingborg C"]
-      ]),
-      this.taskSearchJourneys 
-    )
-    this.scheduleTask(taskKey, 2);
-
-
-    taskKey = this.registerJourneyTask(
-      new Map<ParameterKey, string>([
-        [ParameterKey.EarrivalStation, "Lund C"],
-        [ParameterKey.EdepartureStation, "Malmö C"]
-      ]),
-      this.taskSearchJourneys 
-    )
-    this.scheduleTask(taskKey, 2);
-    return
-    // debug purposes
-    // will define some tasks to register and to see if things work
-  }
-
-  DEBUGSearech(parameters: ParameterBlock){
-    let journeyResponse = this.test.getJourneyResponseDEBUG(parameters.taskKey) as JourneyResponse
-    let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
-    let rescheduleMinTime = journeyDelayHandler.analyzeResponse(journeyResponse) as number
-
-    const now = new Date();
-    let dateToCheck = new Date(now.valueOf() + rescheduleMinTime*60*1000);
-    this._delayedJourneyTracker().at(parameters.taskKey)?.setDateToCheck(dateToCheck)
-    this._delayedJourneyTracker().at(parameters.taskKey)?.setDelayedJourneys(journeyDelayHandler?.getDelayData())
-    this._delayedJourneyTracker().at(parameters.taskKey)?.setUpdateStatus(false)
-
-    //this.scheduleTask(parameters.taskKey, rescheduleMinTime * 60)
-  }
-
   taskSearchJourneys(parameters: ParameterBlock){
     return this.journeyService.getSchedule(parameters).pipe(
       tap({error: (response) => {
@@ -175,35 +123,9 @@ export class ScheduleService {
         this.scheduleTask(parameters.taskKey, rescheduleMinTime * 60)
       }
     );
-    // if response is of error 404
-    // it failed and we need to warn the user and not schedule anything else
-    // we can have another signal to keep track of errors
-    // Like the signal we have now, for each taskkey we will save room for any messages to pass to the frontend
-    // If a message is seen we display it instead of anything else.
   }
 
   public readDelayedTrainData(){
     return this.delayedJourneyTracker
   }
 }
-
-
-// TODO:
-// Use an array to keep track of when tasks are to be scheduled
-// Using this array store the info in local storage 
-  // Remove info in local storage and array when task is completed
-
-// When booting up the app, check the local storage
-// If any tasks are scheduled load them into schedule service
-  // Ensure no double loading from config service
-
-// FOR FRONTEND:
-// Use an array to keep track of the following information
-// When last task was executed 
-// When the next task is to be executed
-// Delay data if it exists
-// The taskkey will be used as the index for this Array/Map
-
-// IN COMPONENT:
-// Use a signal to "check" if there is any information in the "info" array
-// Display all info neatly on a webpage

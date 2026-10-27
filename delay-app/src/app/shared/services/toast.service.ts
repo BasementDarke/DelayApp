@@ -13,10 +13,6 @@ export class ToastService {
 	private readonly _toasts = signal<Toast[]>([]);
 	readonly toasts = this._toasts.asReadonly();
 
-	show(toast: Toast) {
-		this._toasts.update((toasts) => [...toasts, toast]);
-	}
-
 	showError(message: string){
 		let t = {message, classname:"bg-danger text-light", delay: 5000}
 		this._toasts.update((toasts) => [...toasts, t]);

@@ -25,11 +25,4 @@ export class JourneyService {
     }
     return this.http.post<JourneyResponse>(ApiUrls.BaseApiUrl, requestBody);
   }
-
-  // HOW IT USED TO LOOK
-  public DEBUG(parameters: ParameterBlock): Observable<JSON>{
-    console.log(this.http);
-    console.log(parameters.parameters.get(ParameterKey.EarrivalStation))
-    return this.http.get<JSON>(ApiUrls.BaseApiUrl)
-  }
 }

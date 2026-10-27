@@ -34,33 +34,4 @@ export class Search {
       this.toastService.showSuccess("Starting Search")
     }
   }
-
-  
-
-  // TODO:
-  // Using imported Json data test this component
-  // See if the delay handler can spot delayed journeys 
-  // Then see if this component lists them all
-
-  // PROBLEMS:
-  // JSON data is TOO FUCKING long
-
-
-
-  // all info is now neatly in an array
-  // get this array
-  // on the html page loop over this array
-    // create a table for each element in the array
-    // using the taskKey in the element get all parameters
-    // the table will have the following info
-
-    // IN HEADER
-    // Which stations are we tracking? 
-    // When did we last check?
-    // When are we going to check again?
-
-    // IN TABLE ROW
-    // The delayed train info
-    // When was it going to depart and arrive?
-    // Any deviations in the scheduled timings? 
 }
