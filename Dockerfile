@@ -35,8 +35,10 @@ COPY --from=angular-build /src/angular/dist/delay-app/browser ./wwwroot
 
 RUN pwsh /app/playwright.ps1 install --with-deps chromium
 
-ENV ASPNETCORE_URLS=http://0.0.0.0:10000
+ENV ASPNETCORE_URLS=http://0.0.0.0:8080
+ENV ASPNETCORE_ENVIRONMENT=production
+ENV IS_GOOGLE_CLOUD=true
 
-EXPOSE 10000
+EXPOSE 8080
 
 ENTRYPOINT ["dotnet", "DelayApi.dll"]
