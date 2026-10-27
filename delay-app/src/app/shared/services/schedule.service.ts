@@ -60,7 +60,6 @@ export class ScheduleService {
 
     // Register Train Delay Handler to taskKey
     this.journeyDelayHandlers.set(pb.taskKey, new JourneyDelayHandler(pb.taskKey))
-    console.log(`${pb.taskKey}, ${pb.parameters.get(ParameterKey.EdepartureStation)}, ${pb.parameters.get(ParameterKey.EarrivalStation)}`)
     this._delayedJourneyTracker().push(new JourneyDelay(pb, null, null, null))
     return pb.taskKey
   }
@@ -81,7 +80,6 @@ export class ScheduleService {
   scheduleTask(taskKey: number, sec: number){
     const now = new Date();
     let date = new Date(now.valueOf() + sec*1000);
-    console.log(`SCHEDULED TASK ${taskKey} for ${date}`)
     
     let taskObject = this.createTaskObject(taskKey, date)
     setTimeout(() => {
@@ -97,9 +95,7 @@ export class ScheduleService {
     for(let tuple of stationsConfig){
       let departureStation = tuple[0]
       let arrivalStation = tuple[1]
-      console.log(`${departureStation} + ${arrivalStation} BUILDING:`)
       this.buildStationsTask(departureStation, arrivalStation)
-      console.log("=============")
     }
     return
   }
@@ -152,7 +148,6 @@ export class ScheduleService {
     this._delayedJourneyTracker().at(parameters.taskKey)?.setDateToCheck(dateToCheck)
     this._delayedJourneyTracker().at(parameters.taskKey)?.setDelayedJourneys(journeyDelayHandler?.getDelayData())
     this._delayedJourneyTracker().at(parameters.taskKey)?.setUpdateStatus(false)
-    console.log(this.delayedJourneyTracker)
 
     //this.scheduleTask(parameters.taskKey, rescheduleMinTime * 60)
   }
@@ -168,7 +163,6 @@ export class ScheduleService {
     )
     .subscribe(
       (response) => {
-        console.log(`RESPONSE VALUE: ${response}`);
         let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
         let rescheduleMinTime = journeyDelayHandler.analyzeResponse(response) as number
 

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { ConfigService } from '../../shared/services/config.service';
 import { ScheduleService } from '../../shared/services/schedule.service';
 import { ParameterKey } from '../../shared/objects/parameter.key';
-import { DatePipe } from '@angular/common';
 import { BasementJourneyDatePipe } from '../../shared/pipes/basement-journey-date-pipe';
 import { JourneyDeviation } from './components/journey-deviation/journey-deviation';
 import { JourneyInfoHeader } from './components/journey-info-header/journey-info-header';

@@ -80,8 +80,6 @@ namespace DelayApi.Services
                         PropertyNamingPolicy = JsonNamingPolicy.CamelCase
                     };
                     JourneyResponse? journeyResponse = JsonSerializer.Deserialize<JourneyResponse>((JsonElement)jsonData!, options);
-                    Console.WriteLine(jsonData.ToString());
-                    Console.WriteLine(journeyResponse?.Api.ToString());
                     //return journeyResponse?.Journeys!;
                     //var jsonData = await responsePromise.JsonAsync();
                     return journeyResponse;
