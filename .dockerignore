@@ -1,7 +1,11 @@
-/bin/
-/obj/
-/node_modules/
+**/bin/
+**/obj/
+**/node_modules/
 **/.angular/
+**/dist/
+**/coverage/
+**/.env
+**/.env.*
 .git/
 .gitignore
 .vscode/
