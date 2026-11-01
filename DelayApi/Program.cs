@@ -8,7 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddSingleton<JourneyService>();
+builder.Services.AddHttpClient<SkaneTrafikenApiClient>(client =>
+    {
+        client.BaseAddress = new Uri("https://www.skanetrafiken.se/gw-tps/api/v2/");
+        client.DefaultRequestHeaders.Add("search-engine-environment", "TjP");
+        client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    })
+    .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+    {
+        AutomaticDecompression = System.Net.DecompressionMethods.All
+    });
+builder.Services.AddScoped<JourneyService>();
 
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
@@ -18,7 +28,6 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 
 var app = builder.Build();
 
-app.Urls.Add("http://0.0.0.0:8080");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
