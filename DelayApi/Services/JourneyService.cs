@@ -1,99 +1,94 @@
 ﻿using DelayApi.Models;
-using Microsoft.Playwright;
 using System.Text.Json;
-using System.Xml.Linq;
-using DelayApi.Services;
 
 namespace DelayApi.Services
 {
-
-
-    public class JourneyService
+    public sealed class JourneyService
     {
-        private readonly IPlaywright _playwright;
-        private readonly IBrowser _browser;
+        private readonly SkaneTrafikenApiClient _apiClient;
+        private readonly ILogger<JourneyService> _logger;
 
-        //private readonly websiteBaseUrl = "https://www.skanetrafiken.se/"
-
-        public JourneyService()
+        public JourneyService(SkaneTrafikenApiClient apiClient, ILogger<JourneyService> logger)
         {
-            _playwright = Playwright.CreateAsync()
-                .GetAwaiter()
-                .GetResult();
-
-            _browser = _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
-                {
-                    Headless = true
-                })
-                .GetAwaiter()
-                .GetResult();
-
-          
+            _apiClient = apiClient;
+            _logger = logger;
         }
 
-        public async Task<JourneyResponse> SearchAsync(string departureStation, string arrivalStation, int taskKey)
+        public async Task<JourneyResponse?> SearchAsync(string departureStation, string arrivalStation, int taskKey)
         {
-            var context = await _browser.NewContextAsync();
-            var page = await context.NewPageAsync();
+            var fromPoint = await FindPointAsync(departureStation, "departure", taskKey);
+            if (fromPoint is null)
+            {
+                return null;
+            }
+
+            var toPoint = await FindPointAsync(arrivalStation, "arrival", taskKey);
+            if (toPoint is null)
+            {
+                return null;
+            }
 
             try
             {
-                await page.GotoAsync("https://www.skanetrafiken.se/", new PageGotoOptions
-                {
-                    WaitUntil = WaitUntilState.NetworkIdle
-                });
-
-                var fromStationLocator = "[id='fromDestinationAutocompleteCombobox']";
-                var fromStationOptionsLocator = "[id='fromDestinationOption-0']";
-
-                var toStationLocator = "[id='toDestinationAutocompleteCombobox']";
-                var toStationOptionsLocator = "[id='toDestinationOption-0']";
-
-                try
-                {
-                    await page.FillAsync(fromStationLocator, departureStation);
-                    await page.ClickAsync(fromStationOptionsLocator);
-                    await page.FillAsync(toStationLocator, arrivalStation);
-                    await page.ClickAsync(toStationOptionsLocator);
-                }
-                catch
-                {
-                    return null;
-                }
-                
-
-                var responsePromise = await page.RunAndWaitForResponseAsync(async () =>
-                {
-                    await page.ClickAsync("[class='st-button st-button--primary']");
-                }, request => request.Url.Contains("/gw-tps/api/v2/Journey"));
-
-
-                if (responsePromise.Status != 200)
-                {
-                    throw new Exception($"Target website returned {responsePromise.Status}");
-                }
-                else
-                {
-                    JsonElement? jsonData = await responsePromise.JsonAsync();
-                    JsonSerializerOptions options = new(JsonSerializerDefaults.Web)
-                    {
-                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-                    };
-                    JourneyResponse? journeyResponse = JsonSerializer.Deserialize<JourneyResponse>((JsonElement)jsonData!, options);
-                    //return journeyResponse?.Journeys!;
-                    //var jsonData = await responsePromise.JsonAsync();
-                    return journeyResponse;
-                }
+                return await _apiClient.GetJourneysAsync(fromPoint, toPoint);
             }
-            finally
+            catch (HttpRequestException exception)
             {
-                await context.CloseAsync();
+                _logger.LogError(exception, "Journey API request failed for task {TaskKey} with status {StatusCode}.", taskKey, exception.StatusCode);
+                throw;
+            }
+            catch (JsonException exception)
+            {
+                _logger.LogError(exception, "Could not parse the Journey API response for task {TaskKey}.", taskKey);
+                throw;
             }
         }
 
-        public void ParseJsonData()
+        private async Task<SkaneTrafikenPoint?> FindPointAsync(string stationName, string stationRole, int taskKey)
         {
-            return;
+            var normalizedName = NormalizeStationName(stationName);
+
+            SkaneTrafikenPointsResponse? pointsResponse;
+            try
+            {
+                pointsResponse = await _apiClient.GetPointsAsync(normalizedName);
+            }
+            catch (HttpRequestException exception)
+            {
+                _logger.LogError(exception, "Points API request failed for the {StationRole} point lookup in task {TaskKey} with status {StatusCode}.", stationRole, taskKey, exception.StatusCode);
+                throw;
+            }
+            catch (JsonException exception)
+            {
+                _logger.LogError(exception, "Could not parse the Points API response for the {StationRole} point lookup in task {TaskKey}.", stationRole, taskKey);
+                throw;
+            }
+
+            if (pointsResponse?.Error is { } apiError)
+            {
+                _logger.LogError("Points API returned error {ErrorCode} for the {StationRole} point lookup in task {TaskKey}: {ErrorMessage}", apiError.Code, stationRole, taskKey, apiError.Message);
+            }
+
+            var points = pointsResponse?.Points ?? [];
+
+            var matchingPoint = points.FirstOrDefault(point =>
+                                    string.Equals(NormalizeStationName(point.Name), normalizedName, StringComparison.OrdinalIgnoreCase) &&
+                                    string.Equals(point.Type, "STOP_AREA", StringComparison.OrdinalIgnoreCase))
+                                ?? points.FirstOrDefault(point =>
+                                    string.Equals(NormalizeStationName(point.Name), normalizedName, StringComparison.OrdinalIgnoreCase));
+
+            if (matchingPoint is null)
+            {
+                _logger.LogWarning("Points API returned no exact {StationRole} match for task {TaskKey} ({CandidateCount} candidates).", stationRole, taskKey, points.Count);
+            }
+
+            return matchingPoint;
         }
+
+        private static string NormalizeStationName(string stationName)
+        {
+            return string.Concat(stationName.Where(character => !char.IsWhiteSpace(character)));
+        }
+
     }
 }

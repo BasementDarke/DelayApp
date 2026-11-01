@@ -2,7 +2,6 @@
 using DelayApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Playwright.Core;
 using System.Text.Json;
 
 namespace DelayApi.Controllers
