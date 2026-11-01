@@ -1,4 +1,5 @@
-﻿using DelayApi.Models;
+﻿using DelayApi.Exceptions;
+using DelayApi.Models;
 using DelayApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,10 +40,16 @@ namespace DelayApi.Controllers
             var taskKey = journeySearch.TaskKey;
             var departureStation = journeySearch.DepartureStation;
             var arrivalStation = journeySearch.ArrivalStation;
-
-            JourneyResponse? responseData = await _journeyService.SearchAsync(departureStation, arrivalStation, taskKey);
-            Console.WriteLine(responseData);
-            return responseData is null ? BadRequest() : Ok(responseData);
+            try
+            {
+                JourneyResponse responseData = await _journeyService.SearchAsync(departureStation, arrivalStation, taskKey);
+                Console.WriteLine(responseData);
+                return Ok(responseData);
+            }
+            catch (JourneyException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // return NotFound if search fails, for error purposes

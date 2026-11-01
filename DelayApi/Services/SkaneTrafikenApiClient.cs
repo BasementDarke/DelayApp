@@ -21,12 +21,25 @@ namespace DelayApi.Services
                 JsonOptions);
         }
 
-        public async Task<JourneyResponse?> GetJourneysAsync(SkaneTrafikenPoint fromPoint, SkaneTrafikenPoint toPoint)
+        public async Task<JourneyResponse> GetJourneysAsync(SkaneTrafikenPoint fromPoint, SkaneTrafikenPoint toPoint)
         {
             using var response = await _httpClient.GetAsync(BuildJourneyRequest(fromPoint, toPoint));
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadFromJsonAsync<JourneyResponse>(JsonOptions);
+            try
+            {
+                var journeyResponse = await response.Content.ReadFromJsonAsync<JourneyResponse>(JsonOptions);
+                if(journeyResponse == null)
+                {
+                    throw new Exception("Journey API response is nUll");
+                }
+                return journeyResponse;
+
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         private static string BuildJourneyRequest(SkaneTrafikenPoint fromPoint, SkaneTrafikenPoint toPoint)

@@ -1,4 +1,5 @@
-﻿using DelayApi.Models;
+﻿using DelayApi.Exceptions;
+using DelayApi.Models;
 using System.Text.Json;
 
 namespace DelayApi.Services
@@ -14,37 +15,16 @@ namespace DelayApi.Services
             _logger = logger;
         }
 
-        public async Task<JourneyResponse?> SearchAsync(string departureStation, string arrivalStation, int taskKey)
+        public async Task<JourneyResponse> SearchAsync(string departureStation, string arrivalStation, int taskKey)
         {
             var fromPoint = await FindPointAsync(departureStation, "departure", taskKey);
-            if (fromPoint is null)
-            {
-                return null;
-            }
-
             var toPoint = await FindPointAsync(arrivalStation, "arrival", taskKey);
-            if (toPoint is null)
-            {
-                return null;
-            }
 
-            try
-            {
-                return await _apiClient.GetJourneysAsync(fromPoint, toPoint);
-            }
-            catch (HttpRequestException exception)
-            {
-                _logger.LogError(exception, "Journey API request failed for task {TaskKey} with status {StatusCode}.", taskKey, exception.StatusCode);
-                throw;
-            }
-            catch (JsonException exception)
-            {
-                _logger.LogError(exception, "Could not parse the Journey API response for task {TaskKey}.", taskKey);
-                throw;
-            }
+            return await _apiClient.GetJourneysAsync(fromPoint, toPoint);
+
         }
 
-        private async Task<SkaneTrafikenPoint?> FindPointAsync(string stationName, string stationRole, int taskKey)
+        private async Task<SkaneTrafikenPoint> FindPointAsync(string stationName, string stationRole, int taskKey)
         {
             var normalizedName = NormalizeStationName(stationName);
 
@@ -67,6 +47,7 @@ namespace DelayApi.Services
             if (pointsResponse?.Error is { } apiError)
             {
                 _logger.LogError("Points API returned error {ErrorCode} for the {StationRole} point lookup in task {TaskKey}: {ErrorMessage}", apiError.Code, stationRole, taskKey, apiError.Message);
+                throw new JourneyException($"Could not locate station {stationName}");
             }
 
             var points = pointsResponse?.Points ?? [];
@@ -80,6 +61,7 @@ namespace DelayApi.Services
             if (matchingPoint is null)
             {
                 _logger.LogWarning("Points API returned no exact {StationRole} match for task {TaskKey} ({CandidateCount} candidates).", stationRole, taskKey, points.Count);
+                throw new JourneyException($"Could not locate station {stationName}");
             }
 
             return matchingPoint;
