@@ -21,4 +21,8 @@ export class TaskKeyService {
     }
     return key
   }
+
+  clearTaskKeys(){
+    this.taskKeys = new Map<number, string>()
+  }
 }

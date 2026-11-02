@@ -1,28 +1,36 @@
 import { Injectable } from '@angular/core';
+import { JourneyConfig } from '../models/journey.config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConfigService {
   // the boolean represents if this config has been registred
-  stationsConfig: Array<[string, string, boolean]>
+  stationsConfig: Map<string, JourneyConfig>
 
   constructor(){
-    this.stationsConfig = new Array<[string, string, boolean]>
+    this.stationsConfig = new Map<string, JourneyConfig>
   }
 
-  public registerStationsConfig(departureStation: string, arrivalStation: string){
-    this.stationsConfig.push([departureStation, arrivalStation, false])
+  public registerStationsConfig(jc: JourneyConfig){
+    if(this.stationsConfig.get(`${jc.departureStation}-${jc.arrivalStation}`) === undefined){
+      this.stationsConfig.set(`${jc.departureStation}-${jc.arrivalStation}`, jc)
+    }
   }
 
   public getStationsConfig(){
-    let l = new Array<[string, string]>
-    for(let tuple of this.stationsConfig){
-      if(tuple[2] === false){
-        l.push([tuple[0], tuple[1]])
-        tuple[2] = true
-      }
+    let l = new Array<JourneyConfig>
+    for(let [key, item] of this.stationsConfig){
+      l.push(item)
     }
     return l
+  }
+
+  public clearStationsConfig(){
+    this.stationsConfig = new Map<string, JourneyConfig>
+  }
+
+  public removeConfigItem(jc: JourneyConfig){
+    this.stationsConfig.delete(`${jc.departureStation}-${jc.arrivalStation}`)
   }
 }

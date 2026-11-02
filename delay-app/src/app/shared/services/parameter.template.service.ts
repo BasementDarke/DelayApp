@@ -18,4 +18,8 @@ export class ParameterTemplateService {
   getParameterBlock(taskKey: number) {
     return this.templates.get(taskKey)
   }
+
+  clearTemplates(){
+    this.templates = new Map<number, ParameterBlock>()
+  }
 }

@@ -52,6 +52,15 @@ export class ScheduleService {
     return pb.taskKey
   }
 
+  deregisterAllJourneys(){
+    this.taskRegistryHandler.reset()
+    this.taskKeyService.clearTaskKeys()
+    this.parameterTemplateService.clearTemplates()
+    this.taskRegistryService.clearTasks()
+    this.journeyDelayHandlers.clear()
+    this._delayedJourneyTracker.set([]) // this might be an error
+  }
+
   createTaskObject(taskKey: number, date: Date){
     if(this.taskKeyService.checkKey(taskKey) === null){
       throw new Error("Task Key not Registerd")
@@ -78,14 +87,24 @@ export class ScheduleService {
   }
 
   public configBuild(){
+    this.deregisterAllJourneys()
     let stationsConfig = this.configService.getStationsConfig()
-    for(let tuple of stationsConfig){
-      let departureStation = tuple[0]
-      let arrivalStation = tuple[1]
+    for(let item of stationsConfig){
+      let departureStation = item.departureStation
+      let arrivalStation = item.arrivalStation
       this.buildStationsTask(departureStation, arrivalStation)
     }
     return
   }
+
+  // as we configbuild store a key associated to a taskkey in a map
+  // when we load with new settings we loop over the map
+  // if the key from the map can not be used in the stationsConfig
+  // we know that key is no longer in use and remove it from the map
+
+  // NOTE: the parameters associated to the taskkey are still there
+  // If the user where to search for those stations again
+  // We first check if any parameters have been registered to that taskkey
 
   private buildStationsTask(departureStation: string, arrivalStation: string){
     var taskKey = this.registerJourneyTask(

@@ -18,4 +18,8 @@ export class TaskRegistryService {
   getTask(taskKey: number){
     return this.taskRegistryList.get(taskKey)
   }
+
+  clearTasks(){
+    this.taskRegistryList = new Map<number, Function>()
+  }
 }
