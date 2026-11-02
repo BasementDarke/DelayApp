@@ -49,8 +49,8 @@
     }
     <ul class="list-group">
       @for (config of journeyConfigs(); let i = $index; track i){
-        <li class="list-group-item">{{ config.at(0) }} <i class="fa-solid fa-arrow-right-long journey-arrow"></i> 
-          {{ config.at(1) }}
+        <li class="list-group-item">{{ config.departureStation }} <i class="fa-solid fa-arrow-right-long journey-arrow"></i> 
+          {{ config.arrivalStation }}
           <div>
             <i class="fa-solid fa-trash-can i-hover" (click)="deleteConfigItem(i)"></i>
           </div>

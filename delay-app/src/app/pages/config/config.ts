@@ -6,6 +6,8 @@ import { FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } 
 import { Router } from '@angular/router';
 import { ConfigService } from '../../shared/services/config.service';
 import { ToastService } from '../../shared/services/toast.service';
+import { LocalstorageService } from '../../shared/services/localstorage-service';
+import { JourneyConfig } from '../../shared/models/journey.config';
 
 @Component({
   selector: 'app-config',
@@ -19,9 +21,11 @@ export class Config {
   private formBuilder = inject(NonNullableFormBuilder)
   private router = inject(Router)
   private configService = inject(ConfigService)
+  private localstorageService = inject(LocalstorageService)
+
   readonly toastService = inject(ToastService);
 
-  private _journeyConfigs = signal<Array<[string, string]>>([])
+  private _journeyConfigs = signal<Array<JourneyConfig>>([])
   readonly journeyConfigs = this._journeyConfigs.asReadonly()
   
   form = this.formBuilder.group({
@@ -33,6 +37,14 @@ export class Config {
     })
   })
 
+  constructor(){
+    let settings = Object.entries(localStorage)
+    for(let [key, value] of settings){
+      let item = JSON.parse(value) as JourneyConfig
+      this._journeyConfigs().push(item)
+    }
+  }
+
   onSubmit(){
     if(this.form.invalid){
       this.toastService.showError("Invalid Form, please check input")
@@ -41,16 +53,24 @@ export class Config {
     else{
       let departureStation = this.form.value.departureStation as string
       let arrivalStation = this.form.value.arrivalStation as string
-      this._journeyConfigs().push([departureStation, arrivalStation])
+      const configObject: JourneyConfig = {
+        departureStation: departureStation,
+        arrivalStation: arrivalStation
+      }
+
+      this._journeyConfigs().push(configObject)
       this.toastService.showSuccess("Journey Added")
       this.form.controls['departureStation'].setValue("");
       this.form.controls['arrivalStation'].setValue("");
+
+      console.log(`ADDING: ${departureStation}-${arrivalStation}`)
+      this.localstorageService.setItem(`${departureStation}-${arrivalStation}`, configObject)
     }
   }
 
   onClick(){
     for(let item of this._journeyConfigs()){
-      this.configService.registerStationsConfig(item[0], item[1])
+      this.configService.registerStationsConfig(item)
     }
     this.scheduleService.configBuild()
     this.router.navigateByUrl("/search")
@@ -58,6 +78,10 @@ export class Config {
 
   deleteConfigItem(id: number){
     this.toastService.showError("Deleted Joruney")
-    this.journeyConfigs().splice(id,1)
+    const item = this.journeyConfigs().at(id)
+    console.log(`REMOVING: ${item?.departureStation}-${item?.arrivalStation}`)
+    this.localstorageService.removeItem(`${item?.departureStation}-${item?.arrivalStation}`)
+    let arr = this.journeyConfigs().splice(id,1)
+    this.configService.removeConfigItem(item as JourneyConfig) 
   }
 }

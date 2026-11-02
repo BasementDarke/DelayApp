@@ -25,7 +25,7 @@ export class Search {
   readonly parameterKey = ParameterKey;
 
   constructor(){
-    let configLen = this.configService.stationsConfig.length;
+    let configLen = this.configService.stationsConfig.size;
     if(configLen == 0){
       this.toastService.showError("Empty Journey List, please enter a Journey")
       this.router.navigateByUrl("/config")

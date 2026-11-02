@@ -18,4 +18,8 @@ export class TaskRegistryHandler {
     this.taskKey += 1
     return new ParameterBlock(generatedTaskKey, parameters)
   }
+
+  reset(){
+    this.taskKey = 0
+  }
 }
