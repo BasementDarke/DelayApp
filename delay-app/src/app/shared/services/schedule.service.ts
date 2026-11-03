@@ -130,6 +130,7 @@ export class ScheduleService {
     )
     .subscribe(
       (response) => {
+        console.log(response);
         let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
         let rescheduleMinTime = journeyDelayHandler.analyzeResponse(response) as number
 

@@ -48,9 +48,17 @@ export class JourneyDelayHandler{
     private checkRescheduleTime(){
         let minDateSec = undefined
         let initialDeviationMin = 0
+        let currDate = new Date();
         for(let [key, value] of this.activeTrackedJourneys){
             let routeLink = value[0]
             let departureTime = new Date((routeLink.from?.time) as string)
+            let depTime = departureTime.getTime()
+            let curTime = currDate.getTime();
+            if(depTime < curTime){
+                console.log(`${depTime} - ${curTime}`)
+                continue
+            }
+
             if(minDateSec === undefined){
                 minDateSec = Math.floor(departureTime.valueOf()/1000)
                 initialDeviationMin = routeLink.from?.deviation === null ? 0 : routeLink.from?.deviation as number 

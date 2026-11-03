@@ -6,6 +6,7 @@
         public DateTime Time { get; set; }
         public string Id { get; set; } = string.Empty;
         public List<Journey> Journeys { get; set; } = [];
+        public string PrevCursor { get; set; } = string.Empty;
     }
 
     public class Journey
