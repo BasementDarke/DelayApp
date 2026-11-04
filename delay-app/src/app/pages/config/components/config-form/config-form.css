@@ -1,0 +1,182 @@
+.btn{
+    color: azure;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    background-color: brown;
+}
+
+#button-main:hover{
+    transition: 0.2s;
+    background-color: rgb(153, 108, 108);
+}
+
+#button-sec:hover{
+    transition: 0.2s;
+    background-color: rgb(108, 129, 153);
+}
+
+.gray{
+    background-color: gray;
+}
+
+
+.btn-left-margin{
+    margin-left: 20px;
+}
+
+.container{
+    max-width: 960px;
+}
+
+.form-container {
+    margin: 4rem auto;
+    max-width: 480px;
+    position: relative;
+}
+
+.journey-config-form {
+    background: white;
+    padding: 2.5rem;
+    border: none;
+    border-radius: 12px;
+}
+
+.input-group {
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.form-label {
+    width: 20%;
+    border: none;
+    padding: 16px;
+    font-size: 15px;
+}
+
+.form-input {
+    width: 80%;
+    border: none;
+    padding: 16px;
+    font-size: 15px;
+}
+
+.top-input{
+    border-radius: 10px 10px 0px 0px;
+}
+
+.bot-input{
+    border-radius: 0px 0px 10px 10px;
+}
+
+.form-item {
+    margin-left: 10px;
+}
+
+.z-index{
+    z-index: 10;
+    position: absolute;
+}
+
+.input-container{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.test-item{
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 30px;
+}
+
+.col-1{
+    text-align: center;
+}
+
+.grow-1{
+    flex-grow: 1;
+}
+
+.grow-3{
+    flex-grow: 3;
+}
+
+.left-top-item{
+    border-radius: 10px 0px 0px 0px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.left-bot-item{
+    border-radius: 0px 0px 0px 10px;
+    border-right: none;
+}
+
+.right-top-item{
+    border-radius: 0px 10px 0px 0px;
+    border-bottom: none;
+}
+
+.right-bot-item{
+    border-radius: 0px 0px 10px 0px;
+}
+
+.test-input{
+    border: none;
+    width: 95%;
+}
+
+input:focus{
+    outline: none;
+}
+
+.journey-text{
+    margin-bottom: 1rem;
+    font-size: 40px;
+    color: brown;
+}
+
+.notice-text{
+    font-size: 15px;
+}
+
+.list-group-item{
+    width: 50%;
+    font-size: 20px;
+}
+
+.i-hover:hover{
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: rgb(255, 159, 159);
+}
+
+input{
+    background-color: rgb(241, 241, 241);
+}
+
+.bc-white{
+    background-color: white;
+}
+
+.list-item-hover:hover{
+    padding: 5px;
+    transition: 0.2s;
+    background-color: rgb(206, 206, 206);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+

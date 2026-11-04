@@ -1,0 +1,50 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="row justify-content-md-center">
+      <div class="test-item left-top-item col-1 grow-1">
+        <b><label for="departureStationInput" class="test-label">From:</label></b>
+      </div>
+      <div class="test-item right-top-item col-3 grow-3">
+        <input type="text" autocomplete="off" (keyup)="(pointsSearch('departure'))" class="test-input" placeholder="Station" id="departureStationInput" formControlName="departureStation">
+      </div>
+    </div>
+    @if(departureAutocomplete().length > 0){
+      <div  class="row justify-content-md-center z-index bc-white">
+        <div class="test-item col-3 grow-3">
+          <ul class="list-group">
+            @for(item of departureAutocomplete(); track item.name){
+              <p class="list-item-hover" (click)="selectStation(item.name, 'departure')">{{ item.name }}</p>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+
+    <div class="row justify-content-md-center">
+      <div class="test-item left-bot-item col-1 grow-1">
+        <b><label for="arrivalStationInput" class="test-label">To:</label></b>
+      </div>
+      <div class="test-item right-bot-item col-3 grow-3">
+        <input type="text" autocomplete="off" (keyup)="(pointsSearch('arrival'))" class="test-input" placeholder="Station" id="arrivalStationInput" formControlName="arrivalStation">
+      </div>
+    </div>
+    @if(arrivalAutocomplete().length > 0){
+      <div  class="row justify-content-md-center z-index bc-white">
+        <div class="test-item col-3 grow-3">
+          <ul class="list-group">
+            @for(item of arrivalAutocomplete(); track item.name){
+              <p class="list-item-hover" (click)="selectStation(item.name, 'arrival')">{{ item.name }}</p>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+
+    <div class="row justify-content-left">
+      <div>
+        <button type="submit" class="btn" id="button-main">Add Stations</button>
+        <button (click)="onClick()" class="btn gray btn-left-margin" id="button-sec">Start Search</button>
+      </div>
+    </div>
+
+  </form>

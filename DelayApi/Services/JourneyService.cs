@@ -24,6 +24,11 @@ namespace DelayApi.Services
 
         }
 
+        public async Task<SkaneTrafikenPointsResponse> AutocompletePoints(string stationName)
+        {
+            return await _apiClient.GetPointsAsync(stationName);
+        }
+
         private async Task<SkaneTrafikenPoint> FindPointAsync(string stationName, string stationRole, int taskKey)
         {
             var normalizedName = NormalizeStationName(stationName);

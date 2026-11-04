@@ -14,11 +14,25 @@ namespace DelayApi.Services
             _httpClient = httpClient;
         }
 
-        public Task<SkaneTrafikenPointsResponse?> GetPointsAsync(string stationName)
+        public async Task<SkaneTrafikenPointsResponse> GetPointsAsync(string stationName)
         {
-            return _httpClient.GetFromJsonAsync<SkaneTrafikenPointsResponse>(
-                $"Points?name={Uri.EscapeDataString(stationName)}",
-                JsonOptions);
+            using var response = await _httpClient.GetAsync(BuildPointsRequest(stationName));
+            response.EnsureSuccessStatusCode();
+
+            try
+            {
+                var pointsResponse = await response.Content.ReadFromJsonAsync<SkaneTrafikenPointsResponse>(JsonOptions);
+                if(pointsResponse == null)
+                {
+                    throw new Exception("Points API response is null");
+                }
+                return pointsResponse;
+            }
+            catch
+            {
+                throw;
+            }
+
         }
 
         public async Task<JourneyResponse> GetJourneysAsync(SkaneTrafikenPoint fromPoint, SkaneTrafikenPoint toPoint)
@@ -109,6 +123,11 @@ namespace DelayApi.Services
                    "&maxWalkDistance=2000" +
                    "&allowWalkToOtherStop=true" +
                    $"&prevCursor={Uri.EscapeDataString(prevCursor)}";
+        }
+
+        private static string BuildPointsRequest(string stationName)
+        {
+            return $"Points?name={Uri.EscapeDataString(stationName)}";
         }
     }
 }

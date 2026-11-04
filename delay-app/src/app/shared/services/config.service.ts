@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { JourneyConfig } from '../models/journey.config';
 
 @Injectable({
@@ -7,6 +7,9 @@ import { JourneyConfig } from '../models/journey.config';
 export class ConfigService {
   // the boolean represents if this config has been registred
   stationsConfig: Map<string, JourneyConfig>
+
+  private _journeyConfigs = signal<Array<JourneyConfig>>([])
+  readonly journeyConfigs = this._journeyConfigs.asReadonly()
 
   constructor(){
     this.stationsConfig = new Map<string, JourneyConfig>
@@ -32,5 +35,22 @@ export class ConfigService {
 
   public removeConfigItem(jc: JourneyConfig){
     this.stationsConfig.delete(`${jc.departureStation}-${jc.arrivalStation}`)
+  }
+
+  public pushConfig(configObject: JourneyConfig){
+    this._journeyConfigs().push(configObject)
+    console.log(`ADDING: ${configObject.departureStation}-${configObject.arrivalStation}`)
+  }
+
+  public deleteConfigItem(id: number){
+    const jc = this._journeyConfigs().at(id) as JourneyConfig
+    this.stationsConfig.delete(`${jc.departureStation}-${jc.arrivalStation}`)
+    this._journeyConfigs().splice(id,1)
+    console.log(`REMOVING: ${jc.departureStation}-${jc.arrivalStation}`)
+    return jc
+  }
+
+  public getConfig(){
+    return this.journeyConfigs();
   }
 }

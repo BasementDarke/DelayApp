@@ -8,7 +8,6 @@ using System.Text.Json;
 namespace DelayApi.Controllers
 {
     [ApiController]
-    [Route("api/journey")]
     public class JourneyController : Controller
     {
         private readonly JourneyService _journeyService;
@@ -17,23 +16,7 @@ namespace DelayApi.Controllers
             _journeyService = journeyService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult> Index()
-        {
-
-            JourneyResponse? responseData = await _journeyService.SearchAsync("Helsingborg C", "Lund C", 0);
-            //Dictionary<int, Journey>[] journeys = await this._journeyService.SearchAsync("Helsingborg C", "Lund C", 0);
-            //for(int i = 0; i < journeys.Length; i++)
-            //{
-            //    Journey value;
-            //    journeys[0].TryGetValue(i, out value);
-            //    Console.WriteLine(value.Id);
-            //}
-
-            return responseData is null ? NotFound() : Ok(responseData);
-            //return Ok("balls");
-        }
-
+        [Route("/api/journey")]
         [HttpPost]
         public async Task<ActionResult> ScheduleSearch(JourneySearch journeySearch)
         {
@@ -52,7 +35,19 @@ namespace DelayApi.Controllers
             }
         }
 
-        // return NotFound if search fails, for error purposes
-        // Return Json Data
+        [Route("/api/journey/points/{name}")]
+        [HttpGet]
+        public async Task<ActionResult> AutocompleteSearch(string name)
+        {
+            try
+            {
+                SkaneTrafikenPointsResponse responseData = await _journeyService.AutocompletePoints(name);
+                return Ok(responseData);
+            }
+            catch (JourneyException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

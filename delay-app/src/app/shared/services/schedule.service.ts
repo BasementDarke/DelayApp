@@ -97,15 +97,6 @@ export class ScheduleService {
     return
   }
 
-  // as we configbuild store a key associated to a taskkey in a map
-  // when we load with new settings we loop over the map
-  // if the key from the map can not be used in the stationsConfig
-  // we know that key is no longer in use and remove it from the map
-
-  // NOTE: the parameters associated to the taskkey are still there
-  // If the user where to search for those stations again
-  // We first check if any parameters have been registered to that taskkey
-
   private buildStationsTask(departureStation: string, arrivalStation: string){
     var taskKey = this.registerJourneyTask(
       new Map<ParameterKey, string>([
@@ -130,7 +121,6 @@ export class ScheduleService {
     )
     .subscribe(
       (response) => {
-        console.log(response);
         let journeyDelayHandler = this.journeyDelayHandlers.get(parameters.taskKey) as JourneyDelayHandler
         let rescheduleMinTime = journeyDelayHandler.analyzeResponse(response) as number
 

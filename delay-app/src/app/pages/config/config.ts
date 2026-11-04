@@ -8,10 +8,12 @@ import { ConfigService } from '../../shared/services/config.service';
 import { ToastService } from '../../shared/services/toast.service';
 import { LocalstorageService } from '../../shared/services/localstorage-service';
 import { JourneyConfig } from '../../shared/models/journey.config';
+import { Point } from '../../shared/models/points-response';
+import { ConfigForm } from './components/config-form/config-form';
 
 @Component({
   selector: 'app-config',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, ConfigForm],
   templateUrl: './config.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './config.css',
@@ -22,54 +24,28 @@ export class Config {
   private router = inject(Router)
   private configService = inject(ConfigService)
   private localstorageService = inject(LocalstorageService)
+  private journeyService = inject(JourneyService)
 
   readonly toastService = inject(ToastService);
 
-  private _journeyConfigs = signal<Array<JourneyConfig>>([])
-  readonly journeyConfigs = this._journeyConfigs.asReadonly()
-  
-  form = this.formBuilder.group({
-    departureStation: this.formBuilder.control<string>('', {
-      validators: [Validators.required]
-    }),
-    arrivalStation: this.formBuilder.control<string>('', {
-      validators: [Validators.required]
-    })
-  })
+  //private _journeyConfigs = signal<Array<JourneyConfig>>([])
+  readonly journeyConfigs = this.configService.getConfig()
 
+  private _departureAutocomplete = signal<Array<Point>>([])
+  private _arrivalAutocomplete = signal<Array<Point>>([])
+  readonly departureAutocomplete = this._departureAutocomplete.asReadonly()
+  readonly arrivalAutocomplete = this._arrivalAutocomplete.asReadonly()
+  
   constructor(){
     let settings = Object.entries(localStorage)
     for(let [key, value] of settings){
       let item = JSON.parse(value) as JourneyConfig
-      this._journeyConfigs().push(item)
-    }
-  }
-
-  onSubmit(){
-    if(this.form.invalid){
-      this.toastService.showError("Invalid Form, please check input")
-      return
-    }
-    else{
-      let departureStation = this.form.value.departureStation as string
-      let arrivalStation = this.form.value.arrivalStation as string
-      const configObject: JourneyConfig = {
-        departureStation: departureStation,
-        arrivalStation: arrivalStation
-      }
-
-      this._journeyConfigs().push(configObject)
-      this.toastService.showSuccess("Journey Added")
-      this.form.controls['departureStation'].setValue("");
-      this.form.controls['arrivalStation'].setValue("");
-
-      console.log(`ADDING: ${departureStation}-${arrivalStation}`)
-      this.localstorageService.setItem(`${departureStation}-${arrivalStation}`, configObject)
+      this.configService.pushConfig(item)
     }
   }
 
   onClick(){
-    for(let item of this._journeyConfigs()){
+    for(let item of this.configService.getConfig()){
       this.configService.registerStationsConfig(item)
     }
     this.scheduleService.configBuild()
@@ -78,10 +54,7 @@ export class Config {
 
   deleteConfigItem(id: number){
     this.toastService.showError("Deleted Joruney")
-    const item = this.journeyConfigs().at(id)
-    console.log(`REMOVING: ${item?.departureStation}-${item?.arrivalStation}`)
+    let item = this.configService.deleteConfigItem(id);
     this.localstorageService.removeItem(`${item?.departureStation}-${item?.arrivalStation}`)
-    let arr = this.journeyConfigs().splice(id,1)
-    this.configService.removeConfigItem(item as JourneyConfig) 
   }
 }
